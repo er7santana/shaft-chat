@@ -83,13 +83,18 @@ class WelcomeViewController: UIViewController {
                 return
             }
             
-            //present the app
+            self.goToApp()
         })
         
     }
     
     func registerUser(){
-        print("register user")
+        
+        performSegue(withIdentifier: "welcomeToFinishRegistration", sender: self)
+        
+        clearTextFields()
+        dismissKeyboard()
+        
     }
     
     func dismissKeyboard(){
@@ -100,6 +105,30 @@ class WelcomeViewController: UIViewController {
         emailTextField.text = ""
         passwordTextField.text = ""
         repeatPasswordTextField.text = ""
+    }
+    
+    func goToApp(){
+        ProgressHUD.dismiss()
+        
+        clearTextFields()
+        dismissKeyboard()
+        
+        let mainController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainApplication") as! UITabBarController
+        
+        self.present(mainController, animated: true, completion: nil)
+    }
+    
+    //MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "welcomeToFinishRegistration" {
+            
+            let viewController = segue.destination as! FinishRegistrationViewController
+            viewController.email = emailTextField.text!.lowercased()
+            viewController.password = passwordTextField.text!
+        }
+        
     }
 }
 

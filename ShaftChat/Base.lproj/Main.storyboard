@@ -254,7 +254,7 @@
             </objects>
             <point key="canvasLocation" x="887.20000000000005" y="101.19940029985008"/>
         </scene>
-        <!--Item 2-->
+        <!--Settings-->
         <scene sceneID="t0I-Zz-G2N">
             <objects>
                 <viewController id="Kbm-2j-HXG" sceneMemberID="viewController">
@@ -264,13 +264,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="V9T-07-dtx"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="wvo-1H-n94"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="wvo-1H-n94"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZOq-TA-pFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2966" y="425"/>
         </scene>
-        <!--Item 1-->
+        <!--Call-->
         <scene sceneID="eCz-Xk-Vrr">
             <objects>
                 <viewController id="Xcl-4s-juy" sceneMemberID="viewController">
@@ -293,7 +293,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1ZK-8i-1Wk"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="WEr-KH-WYW"/>
+                    <tabBarItem key="tabBarItem" title="Call" image="call" id="WEr-KH-WYW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aqn-RP-CQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -320,5 +320,7 @@
     </scenes>
     <resources>
         <image name="avatarPlaceholder" width="101" height="101"/>
+        <image name="call" width="30" height="30"/>
+        <image name="settings" width="25" height="25"/>
     </resources>
 </document>

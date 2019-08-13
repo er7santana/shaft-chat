@@ -123,6 +123,7 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
             
             self.allUsers = []
             self.filteredUsers = []
+            self.sectionTitleList = []
             self.allUsersGroupped = [:]
             
             if error != nil {

@@ -14,6 +14,7 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.prefersLargeTitles = true
+        tableView.tableFooterView = UIView()
     }
 
     // MARK: - Table view data source

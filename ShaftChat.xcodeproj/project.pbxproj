@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842920822304F4AB005160CA /* ProfileViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842920812304F4AB005160CA /* ProfileViewTableViewController.swift */; };
 		847068B522F611E600DCB6BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 847068B422F611E600DCB6BA /* GoogleService-Info.plist */; };
 		847068B722F6154400DCB6BA /* FUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847068B622F6154400DCB6BA /* FUser.swift */; };
 		847068B922F615AA00DCB6BA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847068B822F615AA00DCB6BA /* Constants.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		842920812304F4AB005160CA /* ProfileViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTableViewController.swift; sourceTree = "<group>"; };
 		847068B422F611E600DCB6BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		847068B622F6154400DCB6BA /* FUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUser.swift; sourceTree = "<group>"; };
 		847068B822F615AA00DCB6BA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				847068C222F6B6F000DCB6BA /* SettingsTableViewController.swift */,
 				84D747FC23022D52004AEA88 /* UsersTableViewController.swift */,
 				84D747FE230264A7004AEA88 /* ChatsViewController.swift */,
+				842920812304F4AB005160CA /* ProfileViewTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			files = (
 				847068B722F6154400DCB6BA /* FUser.swift in Sources */,
 				84D747FB230222BA004AEA88 /* UserTableViewCell.swift in Sources */,
+				842920822304F4AB005160CA /* ProfileViewTableViewController.swift in Sources */,
 				84B92A7722F5EE5B0043B283 /* WelcomeViewController.swift in Sources */,
 				847068BB22F6197900DCB6BA /* FCollectionReference.swift in Sources */,
 				84B92A7522F5EE5B0043B283 /* AppDelegate.swift in Sources */,

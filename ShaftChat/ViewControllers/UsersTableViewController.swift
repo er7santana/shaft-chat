@@ -10,8 +10,8 @@ import UIKit
 import Firebase
 import ProgressHUD
 
-class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
-
+class UsersTableViewController: UITableViewController, UISearchResultsUpdating, UserTableViewCellDelegate {
+    
     @IBOutlet var headerView: UITableView!
     @IBOutlet weak var filterSegmentedControl: UISegmentedControl!
     
@@ -79,6 +79,8 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
 
         cell.generateCellWith(fUser: user, indexPath: indexPath)
 
+        cell.delegate = self
+        
         return cell
     }
     
@@ -216,5 +218,24 @@ class UsersTableViewController: UITableViewController, UISearchResultsUpdating {
         }
     }
     
+    //MARK: - UserTableViewCellDelegate
     
+    func didTapAvatarImage(indexPath: IndexPath) {
+        
+        let profileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profileView") as! ProfileViewTableViewController
+        
+        var user: FUser
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            user = filteredUsers[indexPath.row]
+        } else {
+            let sectionTitle = self.sectionTitleList[indexPath.section]
+            let users = self.allUsersGroupped[sectionTitle]
+            user = users![indexPath.row]
+        }
+        
+        profileViewController.user = user
+        
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+    }
 }

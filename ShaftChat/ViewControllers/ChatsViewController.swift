@@ -9,13 +9,27 @@
 import UIKit
 import Firebase
 
-class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RecentChatsTableViewCellDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
     
     var recentChats: [NSDictionary] = []
     var filteredChats: [NSDictionary] = []
     var recentListener: ListenerRegistration!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        loadRecentChats()
+        tableView.tableFooterView = UIView()
+        
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        recentListener.remove()
+        super.viewWillDisappear(animated)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +38,9 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        loadRecentChats()
+        //Recent
+        
+        setHeaderTableView()
     }
     
     //MARK: - Actions
@@ -49,6 +65,8 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let recentChat = recentChats[indexPath.row]
         
         cell.generateCell(recentChat: recentChat, indexPath: indexPath)
+        
+        cell.delegate = self
         
         return cell;
     }
@@ -86,6 +104,70 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.tableView.reloadData()
             
         })
+        
+    }
+    
+    // MARK: - Helper functions
+    
+    func setHeaderTableView() {
+        
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 45))
+        let buttonView = UIView(frame: CGRect(x: 0, y: 5, width: tableView.frame.width, height: 35))
+        let newGroupButton = UIButton(frame: CGRect(x: tableView.frame.width - 110, y: 10, width: 100, height: 20))
+        
+        newGroupButton.addTarget(self, action: #selector(self.newGroupButtonPressed), for: .touchUpInside)
+        newGroupButton.setTitle("New Group", for: .normal)
+        newGroupButton.setTitleColor(#colorLiteral(red: 0.06357951079, green: 0.7035536149, blue: 1, alpha: 1), for: .normal)
+        
+        let lineView = UIView(frame: CGRect(x: 0, y: headerView.frame.height - 1, width: tableView.frame.width, height: 1))
+        lineView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        
+        buttonView.addSubview(newGroupButton)
+        headerView.addSubview(buttonView)
+        headerView.addSubview(lineView)
+        
+        tableView.tableHeaderView = headerView
+    }
+    
+    @objc func newGroupButtonPressed() {
+        
+    }
+    
+    func showUserProfile(user: FUser) {
+        
+        let profileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profileView") as! ProfileViewTableViewController
+        
+        profileViewController.user = user
+        
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+        
+    }
+    
+    //MARK: - RecentChatsTableViewCellDelegate
+    
+    func didTapAvatarImage(indexPath: IndexPath) {
+        
+        let recentChat = recentChats[indexPath.row]
+        
+        if recentChat[kTYPE] as! String == kPRIVATE {
+            
+            reference(.User).document(recentChat[kWITHUSERUSERID] as! String).getDocument { (snapshot, error) in
+                
+                if error != nil {
+                    print(error!.localizedDescription)
+                    return
+                }
+                
+                guard let snapshot = snapshot else { return }
+                
+                if snapshot.exists {
+                    
+                    let userDictionary = snapshot.data() as! NSDictionary
+                    let tempUser = FUser(_dictionary: userDictionary)
+                    self.showUserProfile(user: tempUser)
+                }
+            }
+        }
         
     }
     

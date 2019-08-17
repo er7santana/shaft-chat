@@ -54,7 +54,7 @@ class UserTableViewCell: UITableViewCell {
     }
     
     @objc func avatarTap(){
-        delegate!.didTapAvatarImage(indexPath: indexPath)
+        delegate?.didTapAvatarImage(indexPath: indexPath)
     }
 
 }

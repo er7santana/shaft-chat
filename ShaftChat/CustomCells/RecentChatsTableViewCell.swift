@@ -24,16 +24,16 @@ class RecentChatsTableViewCell: UITableViewCell {
     
     var delegate: RecentChatsTableViewCellDelegate?
     var indexPath: IndexPath!
-    var tapGesture = UITapGestureRecognizer()
+    var avatarTapGestureRecognizer = UITapGestureRecognizer()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         messageCounterBackground.layer.cornerRadius = messageCounterBackground.frame.width / 2
         
-        tapGesture.addTarget(self, action: #selector(avatarTap))
+        avatarTapGestureRecognizer.addTarget(self, action: #selector(avatarTap))
         avatarImageView.isUserInteractionEnabled = true
-        avatarImageView.addGestureRecognizer(tapGesture)
+        avatarImageView.addGestureRecognizer(avatarTapGestureRecognizer)
         
     }
 

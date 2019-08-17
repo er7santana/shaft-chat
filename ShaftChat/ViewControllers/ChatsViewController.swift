@@ -9,13 +9,15 @@
 import UIKit
 import Firebase
 
-class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RecentChatsTableViewCellDelegate {
+class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RecentChatsTableViewCellDelegate, UISearchResultsUpdating {
     
     @IBOutlet weak var tableView: UITableView!
     
     var recentChats: [NSDictionary] = []
     var filteredChats: [NSDictionary] = []
     var recentListener: ListenerRegistration!
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -38,7 +40,13 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        //Recent
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        
+        definesPresentationContext = true
         
         setHeaderTableView()
     }
@@ -56,13 +64,17 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredChats.count
+        }
+        
         return recentChats.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recentChatCell", for: indexPath) as! RecentChatsTableViewCell
         
-        let recentChat = recentChats[indexPath.row]
+        let recentChat = getSelectedChat(indexPath: indexPath)
         
         cell.generateCell(recentChat: recentChat, indexPath: indexPath)
         
@@ -109,6 +121,20 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // MARK: - Helper functions
     
+    func getSelectedChat (indexPath: IndexPath) -> NSDictionary {
+     
+        var selectedChat: NSDictionary!
+        if searchController.isActive && searchController.searchBar.text != "" {
+            
+            selectedChat = filteredChats[indexPath.row]
+        } else {
+            
+            selectedChat = recentChats[indexPath.row]
+        }
+        
+        return selectedChat
+    }
+    
     func setHeaderTableView() {
         
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 45))
@@ -147,7 +173,7 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func didTapAvatarImage(indexPath: IndexPath) {
         
-        let recentChat = recentChats[indexPath.row]
+        let recentChat = getSelectedChat(indexPath: indexPath)
         
         if recentChat[kTYPE] as! String == kPRIVATE {
             
@@ -169,6 +195,23 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         }
         
+    }
+    
+    
+    //MARK: - SearchResultsUpdating functions
+    
+    func filterContentsForSearchText(searchText: String, scope: String = "All"){
+        
+        filteredChats = recentChats.filter({ (recentChat) -> Bool in
+            
+            return (recentChat[kWITHUSERFULLNAME] as! String).lowercased().contains(searchText.lowercased())
+        })
+        
+        tableView.reloadData()
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentsForSearchText(searchText: searchController.searchBar.text!)
     }
     
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8409E10E23097D92009E1086 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409E10D23097D92009E1086 /* ChatViewController.swift */; };
 		8409E110230A0A70009E1086 /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409E10F230A0A70009E1086 /* OutgoingMessage.swift */; };
+		8409E112230A134A009E1086 /* IncomingMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409E111230A134A009E1086 /* IncomingMessages.swift */; };
 		842920822304F4AB005160CA /* ProfileViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842920812304F4AB005160CA /* ProfileViewTableViewController.swift */; };
 		847068B522F611E600DCB6BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 847068B422F611E600DCB6BA /* GoogleService-Info.plist */; };
 		847068B722F6154400DCB6BA /* FUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847068B622F6154400DCB6BA /* FUser.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		8409E10D23097D92009E1086 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		8409E10F230A0A70009E1086 /* OutgoingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
+		8409E111230A134A009E1086 /* IncomingMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingMessages.swift; sourceTree = "<group>"; };
 		842920812304F4AB005160CA /* ProfileViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTableViewController.swift; sourceTree = "<group>"; };
 		847068B422F611E600DCB6BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		847068B622F6154400DCB6BA /* FUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUser.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				847068B622F6154400DCB6BA /* FUser.swift */,
 				84C7163923063F5300BE5C52 /* Recent.swift */,
 				8409E10F230A0A70009E1086 /* OutgoingMessage.swift */,
+				8409E111230A134A009E1086 /* IncomingMessages.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				8409E110230A0A70009E1086 /* OutgoingMessage.swift in Sources */,
 				847068B722F6154400DCB6BA /* FUser.swift in Sources */,
 				84C7163A23063F5300BE5C52 /* Recent.swift in Sources */,
+				8409E112230A134A009E1086 /* IncomingMessages.swift in Sources */,
 				84D747FB230222BA004AEA88 /* UserTableViewCell.swift in Sources */,
 				842920822304F4AB005160CA /* ProfileViewTableViewController.swift in Sources */,
 				84B92A7722F5EE5B0043B283 /* WelcomeViewController.swift in Sources */,

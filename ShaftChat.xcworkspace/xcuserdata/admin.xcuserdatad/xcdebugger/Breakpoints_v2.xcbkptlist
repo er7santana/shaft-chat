@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShaftChat/ViewControllers/ChatsViewController.swift"
-            timestampString = "587787918.1201"
+            timestampString = "587788485.645625"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "didTapAvatarImage(indexPath:)"
             landmarkType = "7">
          </BreakpointContent>

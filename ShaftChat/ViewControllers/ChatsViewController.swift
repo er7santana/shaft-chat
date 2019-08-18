@@ -101,7 +101,9 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
             
-            print("delete row \(indexPath)")
+            self.recentChats.remove(at: indexPath.row)
+            deleteRecentChat(recentChatDictionary: tempRecent)
+            self.tableView.reloadData()
         }
         
         let muteAction = UITableViewRowAction(style: .default, title: muteTitle) { (action, indexPath) in

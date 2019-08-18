@@ -113,6 +113,7 @@ class ChatViewController: JSQMessagesViewController {
 
         if text != "" {
             
+            self.sendMessage(text: text, date: date, picture: nil, location: nil, video: nil, audio: nil)
             updateSendButton(isSend: false)
         } else {
             
@@ -120,6 +121,12 @@ class ChatViewController: JSQMessagesViewController {
         }
     }
     
+    //MARK: - Send Messages
+    
+    func sendMessage(text: String?, date: Date, picture: UIImage?, location: String?, video: NSURL?, audio: String?) {
+        
+        
+    }
     
     //MARK: - CustomSendButton
     

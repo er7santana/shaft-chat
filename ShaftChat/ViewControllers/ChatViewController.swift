@@ -29,6 +29,12 @@ class ChatViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.largeTitleDisplayMode = .never
+        navigationItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "Back"), style: .plain, target: self, action: #selector(self.backAction))]
+        
+        collectionView?.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
+        collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
 
         senderId = FUser.currentId()
         senderDisplayName = FUser.currentUser()!.firstname
@@ -42,7 +48,15 @@ class ChatViewController: JSQMessagesViewController {
         self.inputToolbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
         // end of fix For iPhone X
+        
+        //custom send button
+        self.inputToolbar.contentView.rightBarButtonItem.setImage(UIImage(named: "mic"), for: .normal)
+        self.inputToolbar.contentView.rightBarButtonItem.setTitle("", for: .normal)
 
+    }
+    
+    @objc func backAction() {
+        
     }
     
 }

@@ -83,6 +83,36 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell;
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let tempRecent = getSelectedChat(indexPath: indexPath)
+        
+        var muteTitle = "Unmute"
+        var mute = false
+        
+        if (tempRecent[kMEMBERSTOPUSH] as! [String]).contains(FUser.currentId()) {
+            muteTitle = "Mute"
+            mute = true
+        }
+        
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (action, indexPath) in
+            
+            print("delete row \(indexPath)")
+        }
+        
+        let muteAction = UITableViewRowAction(style: .default, title: muteTitle) { (action, indexPath) in
+            
+            print("\(muteTitle) row \(indexPath)")
+        }
+        muteAction.backgroundColor = #colorLiteral(red: 0.06357951079, green: 0.7035536149, blue: 1, alpha: 1)
+        
+        return [deleteAction, muteAction]
+    }
+    
     //MARK: - Get Recent Chats
     
     func loadRecentChats() {

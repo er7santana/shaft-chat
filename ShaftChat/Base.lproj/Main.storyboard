@@ -459,6 +459,21 @@
             </objects>
             <point key="canvasLocation" x="3900" y="429.53523238380814"/>
         </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="oOh-CN-a7g">
+            <objects>
+                <viewController id="e2i-e2-UOr" customClass="ChatViewController" customModule="ShaftChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VMf-yo-xac">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="o5E-EH-YL9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xAA-fm-iG0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5398" y="-224"/>
+        </scene>
         <!--Users Table View Controller-->
         <scene sceneID="YOO-os-I6Q">
             <objects>

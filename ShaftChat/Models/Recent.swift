@@ -107,7 +107,7 @@ func restartRecentChat(recent: NSDictionary) {
     
     if recent[kTYPE] as! String == kPRIVATE {
         
-        createRecent(members: recent[kMEMBERSTOPUSH] as! [String], chatRoomId: recent[kCHATROOMID] as! String, withUserUsername: recent[kWITHUSERUSERNAME] as! String, type: kPRIVATE, users: [FUser.currentUser()!], avatarOfGroup: nil)
+        createRecent(members: recent[kMEMBERSTOPUSH] as! [String], chatRoomId: recent[kCHATROOMID] as! String, withUserUsername: FUser.currentUser()!.firstname, type: kPRIVATE, users: [FUser.currentUser()!], avatarOfGroup: nil)
         
     } else if recent[kTYPE] as! String == kGROUP {
         

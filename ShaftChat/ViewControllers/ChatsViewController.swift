@@ -125,6 +125,9 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         restartRecentChat(recent: recentChat)
         
         //show chat controller
+        let chatViewController = ChatViewController()
+        chatViewController.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(chatViewController, animated: true)
     }
     
     //MARK: - Get Recent Chats

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8409E10E23097D92009E1086 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8409E10D23097D92009E1086 /* ChatViewController.swift */; };
 		842920822304F4AB005160CA /* ProfileViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842920812304F4AB005160CA /* ProfileViewTableViewController.swift */; };
 		847068B522F611E600DCB6BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 847068B422F611E600DCB6BA /* GoogleService-Info.plist */; };
 		847068B722F6154400DCB6BA /* FUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847068B622F6154400DCB6BA /* FUser.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8409E10D23097D92009E1086 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		842920812304F4AB005160CA /* ProfileViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewTableViewController.swift; sourceTree = "<group>"; };
 		847068B422F611E600DCB6BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		847068B622F6154400DCB6BA /* FUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUser.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				84D747FC23022D52004AEA88 /* UsersTableViewController.swift */,
 				84D747FE230264A7004AEA88 /* ChatsViewController.swift */,
 				842920812304F4AB005160CA /* ProfileViewTableViewController.swift */,
+				8409E10D23097D92009E1086 /* ChatViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				847068B922F615AA00DCB6BA /* Constants.swift in Sources */,
 				847068C122F68A9700DCB6BA /* FinishRegistrationViewController.swift in Sources */,
 				84D747FD23022D52004AEA88 /* UsersTableViewController.swift in Sources */,
+				8409E10E23097D92009E1086 /* ChatViewController.swift in Sources */,
 				847068BE22F61B4200DCB6BA /* HelperFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

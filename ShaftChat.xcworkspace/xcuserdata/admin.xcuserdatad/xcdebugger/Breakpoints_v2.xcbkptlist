@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShaftChat/ViewControllers/ChatsViewController.swift"
-            timestampString = "587790465.1974061"
+            timestampString = "587829013.937012"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
-            landmarkName = "showUserProfile(user:)"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "didTapAvatarImage(indexPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

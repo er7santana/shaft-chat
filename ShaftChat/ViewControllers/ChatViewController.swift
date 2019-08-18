@@ -95,11 +95,49 @@ class ChatViewController: JSQMessagesViewController {
         optionMenu.addAction(shareLocation)
         optionMenu.addAction(cancelAction)
         
-        self.present(optionMenu, animated: true, completion: nil)
+        //for iPad not to crash
+        if UI_USER_INTERFACE_IDIOM() == .pad {
+            if let currentPopoverPresentationController = optionMenu.popoverPresentationController {
+                currentPopoverPresentationController.sourceView = self.inputToolbar.contentView.leftBarButtonItem
+                currentPopoverPresentationController.sourceRect = self.inputToolbar.contentView.leftBarButtonItem.bounds
+                
+                currentPopoverPresentationController.permittedArrowDirections = .up
+                self.present(optionMenu, animated: true, completion: nil)
+            }
+        } else {
+            self.present(optionMenu, animated: true, completion: nil)
+        }
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+
+        if text != "" {
+            
+            updateSendButton(isSend: false)
+        } else {
+            
+            
+        }
+    }
+    
+    
+    //MARK: - CustomSendButton
+    
+    override func textViewDidChange(_ textView: UITextView) {
         
-        print("send")
+        if textView.text != "" {
+            updateSendButton(isSend: true)
+        } else {
+            updateSendButton(isSend: false)
+        }
+        
+    }
+    
+    func updateSendButton(isSend: Bool) {
+        if isSend {
+            self.inputToolbar.contentView.rightBarButtonItem.setImage(UIImage(named: "send"), for: .normal)
+        } else {
+            self.inputToolbar.contentView.rightBarButtonItem.setImage(UIImage(named: "mic"), for: .normal)
+        }
     }
 }

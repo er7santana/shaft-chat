@@ -115,6 +115,18 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return [deleteAction, muteAction]
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+        let recentChat = getSelectedChat(indexPath: indexPath)
+        
+        //restart chat
+        restartRecentChat(recent: recentChat)
+        
+        //show chat controller
+    }
+    
     //MARK: - Get Recent Chats
     
     func loadRecentChats() {

@@ -13,13 +13,9 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var repeatPasswordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
         
     }
 
@@ -40,28 +36,6 @@ class LoginViewController: UIViewController {
         }
         
         loginUser()
-        
-    }
-    
-    @IBAction func registerButtonPressed(_ sender: UIButton) {
-    
-        dismissKeyboard()
-        
-        let email = emailTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
-        let repeatPassword = repeatPasswordTextField.text ?? ""
-        
-        if email.isEmpty || password.isEmpty || repeatPassword.isEmpty {
-            ProgressHUD.showError("All fields are required")
-            return
-        }
-        
-        if repeatPassword != password {
-            ProgressHUD.showError("Passwords fields do not match")
-            return
-        }
-        
-        registerUser()
         
     }
     
@@ -88,15 +62,6 @@ class LoginViewController: UIViewController {
         
     }
     
-    func registerUser(){
-        
-        performSegue(withIdentifier: "welcomeToFinishRegistration", sender: self)
-        
-        clearTextFields()
-        dismissKeyboard()
-        
-    }
-    
     func dismissKeyboard(){
         self.view.endEditing(false)
     }
@@ -104,7 +69,6 @@ class LoginViewController: UIViewController {
     func clearTextFields(){
         emailTextField.text = ""
         passwordTextField.text = ""
-        repeatPasswordTextField.text = ""
     }
     
     func goToApp(){
@@ -120,17 +84,5 @@ class LoginViewController: UIViewController {
         self.present(mainController, animated: true, completion: nil)
     }
     
-    //MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "welcomeToFinishRegistration" {
-            
-            let viewController = segue.destination as! FinishRegistrationViewController
-            viewController.email = emailTextField.text!.lowercased()
-            viewController.password = passwordTextField.text!
-        }
-        
-    }
 }
 

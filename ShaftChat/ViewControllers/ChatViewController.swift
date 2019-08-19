@@ -24,6 +24,11 @@ class ChatViewController: JSQMessagesViewController {
     
     let legitTypes = [kAUDIO, kVIDEO, kTEXT, kLOCATION, kPICTURE]
     
+    var maxMessagesNumber = 0
+    var minMessagesNumber = 0
+    var loadOld = false
+    var loadedMessagesCount = 0
+    
     var messages: [JSQMessage] = []
     var objectMessages: [NSDictionary] = []
     var loadedMessages: [NSDictionary] = []
@@ -195,6 +200,52 @@ class ChatViewController: JSQMessagesViewController {
         
     }
     
+    //MARK: - Insert Messages
+    
+    func insertMessages() {
+        
+        maxMessagesNumber = loadedMessages.count - loadedMessagesCount
+        minMessagesNumber = maxMessagesNumber - kNUMBEROFMESSAGES
+        
+        if minMessagesNumber < 0 {
+            minMessagesNumber = 0
+        }
+        
+        for i in minMessagesNumber ..< maxMessagesNumber {
+            
+            let messageDictionary = loadedMessages[i]
+            
+            insertInitialLoadedMessages(messageDictionary: messageDictionary)
+            
+            loadedMessagesCount += 1
+        }
+        
+        self.showLoadEarlierMessagesHeader = (loadedMessagesCount != loadedMessages.count)
+    }
+    
+    func insertInitialLoadedMessages(messageDictionary: NSDictionary) -> Bool {
+        
+        let incomingMessage = IncomingMessages(_collectionView: self.collectionView!)
+        var isIncomingMessage = false
+        
+        //check if is incoming
+        if isIncoming(messageDictionary: messageDictionary) {
+            
+            isIncomingMessage = true
+            //update message status
+            
+        }
+        
+        let message = incomingMessage.createMessage(messageDictionary: messageDictionary, chatRoomId: chatRoomId)
+        
+        if message != nil {
+            objectMessages.append(messageDictionary)
+            messages.append(message!)
+        }
+        
+        return isIncomingMessage
+    }
+    
     //MARK: - CustomSendButton
     
     override func textViewDidChange(_ textView: UITextView) {
@@ -237,5 +288,15 @@ class ChatViewController: JSQMessagesViewController {
         }
         
         return tempMessages
+    }
+    
+    func isIncoming(messageDictionary: NSDictionary) -> Bool {
+        
+        if FUser.currentId() == messageDictionary[kSENDERID] as! String {
+            
+            return false
+        }
+        
+        return true
     }
 }

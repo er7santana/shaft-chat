@@ -22,6 +22,15 @@ class ChatViewController: JSQMessagesViewController {
     var membersToPush: [String]!
     var titleName: String!
     
+    let legitTypes = [kAUDIO, kVIDEO, kTEXT, kLOCATION, kPICTURE]
+    
+    var messages: [JSQMessage] = []
+    var objectMessages: [NSDictionary] = []
+    var loadedMessages: [NSDictionary] = []
+    var allPictureMessages: [String] = []
+    
+    var initialLoadComplete = false
+    
     var outgoingBubble = JSQMessagesBubbleImageFactory()?.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleGreen())
     
     var incomingBubble = JSQMessagesBubbleImageFactory()?.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
@@ -145,6 +154,44 @@ class ChatViewController: JSQMessagesViewController {
         
         outgoingMessage!.sendMessage(chatRoomId: chatRoomId, messageDictionary: outgoingMessage!.messageDictionary, memberIds: memberIds, membersToPush: membersToPush)
         
+    }
+    
+    //MARK: - Load messages
+    
+    func loadMessages() {
+        
+        //get last 11 messages
+        reference(.Message).document(FUser.currentId()).collection(chatRoomId).order(by: kDATE, descending: true).limit(to: 11).getDocuments { (snapshot, error) in
+            
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            guard let snapshot = snapshot else {
+                
+                self.initialLoadComplete = true
+                //listen for new chats
+                
+                return
+            }
+            
+            let sorted = ((dictionaryFromSnapshots(snapshots: snapshot.documents)) as NSArray).sortedArray(using: [NSSortDescriptor(key: kDATE, ascending: true)]) as! [NSDictionary]
+            
+            //remove bad messages
+            self.loadedMessages = self.removeBadMessages(allMessages: sorted)
+            
+            //insert Messages
+            self.initialLoadComplete = true
+            
+            //get picture Messages
+            
+            //get old messages in background
+            
+            //start listening for new chats
+        }
+        
+        
         
     }
     
@@ -166,5 +213,29 @@ class ChatViewController: JSQMessagesViewController {
         } else {
             self.inputToolbar.contentView.rightBarButtonItem.setImage(UIImage(named: "mic"), for: .normal)
         }
+    }
+    
+    //MARK: - Helper Functions
+    
+    func removeBadMessages(allMessages: [NSDictionary]) -> [NSDictionary] {
+        
+        var tempMessages = allMessages
+        
+        for message in tempMessages {
+            
+            if message[kTYPE] != nil {
+                
+                if !self.legitTypes.contains(message[kTYPE] as! String) {
+                    
+                    //remove the message because it is not valid type
+                    tempMessages.remove(at: tempMessages.firstIndex(of: message)!)
+                }
+            } else {
+                //remove the message because does not have a type
+                tempMessages.remove(at: tempMessages.firstIndex(of: message)!)
+            }
+        }
+        
+        return tempMessages
     }
 }

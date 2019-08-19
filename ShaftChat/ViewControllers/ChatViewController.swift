@@ -58,6 +58,8 @@ class ChatViewController: JSQMessagesViewController {
         senderId = FUser.currentId()
         senderDisplayName = FUser.currentUser()!.firstname
         
+        loadMessages()
+        
         // fix for iPhone X
 
         let constraint = perform(Selector(("toolbarBottomLayoutGuide")))?.takeUnretainedValue() as! NSLayoutConstraint
@@ -76,6 +78,45 @@ class ChatViewController: JSQMessagesViewController {
     
     @objc func backAction() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    //MARK: - JSQ DataSource functions
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
+        
+        let data = messages[indexPath.row]
+        
+        //set text color
+        if data.senderId == FUser.currentId() {
+            cell.textView?.textColor = .white
+        } else {
+            cell.textView?.textColor = .black
+        }
+        
+        return cell
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
+        
+        return messages[indexPath.row]
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return messages.count
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
+        
+        let data = messages[indexPath.row]
+        
+        if data.senderId == FUser.currentId() {
+            return outgoingBubble
+        } else {
+            return incomingBubble
+        }
     }
     
     //MARK: - JSQ Delegates
@@ -186,7 +227,11 @@ class ChatViewController: JSQMessagesViewController {
             //remove bad messages
             self.loadedMessages = self.removeBadMessages(allMessages: sorted)
             
-            //insert Messages
+            self.insertMessages()
+            self.finishReceivingMessage(animated: true)
+            
+            print("we have \(self.messages.count) messages loaded")
+            
             self.initialLoadComplete = true
             
             //get picture Messages

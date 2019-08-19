@@ -19,7 +19,7 @@
 		847068C122F68A9700DCB6BA /* FinishRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847068C022F68A9700DCB6BA /* FinishRegistrationViewController.swift */; };
 		847068C322F6B6F000DCB6BA /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847068C222F6B6F000DCB6BA /* SettingsTableViewController.swift */; };
 		84B92A7522F5EE5B0043B283 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B92A7422F5EE5B0043B283 /* AppDelegate.swift */; };
-		84B92A7722F5EE5B0043B283 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B92A7622F5EE5B0043B283 /* WelcomeViewController.swift */; };
+		84B92A7722F5EE5B0043B283 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B92A7622F5EE5B0043B283 /* LoginViewController.swift */; };
 		84B92A7A22F5EE5B0043B283 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B92A7822F5EE5B0043B283 /* Main.storyboard */; };
 		84B92A7C22F5EE5E0043B283 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B92A7B22F5EE5E0043B283 /* Assets.xcassets */; };
 		84B92A7F22F5EE5E0043B283 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B92A7D22F5EE5E0043B283 /* LaunchScreen.storyboard */; };
@@ -45,7 +45,7 @@
 		847068C222F6B6F000DCB6BA /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		84B92A7122F5EE5B0043B283 /* ShaftChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShaftChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B92A7422F5EE5B0043B283 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		84B92A7622F5EE5B0043B283 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		84B92A7622F5EE5B0043B283 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		84B92A7922F5EE5B0043B283 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84B92A7B22F5EE5E0043B283 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84B92A7E22F5EE5E0043B283 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 		84B92A8822F5EE8C0043B283 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				84B92A7622F5EE5B0043B283 /* WelcomeViewController.swift */,
+				84B92A7622F5EE5B0043B283 /* LoginViewController.swift */,
 				847068C022F68A9700DCB6BA /* FinishRegistrationViewController.swift */,
 				847068C222F6B6F000DCB6BA /* SettingsTableViewController.swift */,
 				84D747FC23022D52004AEA88 /* UsersTableViewController.swift */,
@@ -291,7 +291,7 @@
 				8409E112230A134A009E1086 /* IncomingMessages.swift in Sources */,
 				84D747FB230222BA004AEA88 /* UserTableViewCell.swift in Sources */,
 				842920822304F4AB005160CA /* ProfileViewTableViewController.swift in Sources */,
-				84B92A7722F5EE5B0043B283 /* WelcomeViewController.swift in Sources */,
+				84B92A7722F5EE5B0043B283 /* LoginViewController.swift in Sources */,
 				847068BB22F6197900DCB6BA /* FCollectionReference.swift in Sources */,
 				84B92A7522F5EE5B0043B283 /* AppDelegate.swift in Sources */,
 				847068C322F6B6F000DCB6BA /* SettingsTableViewController.swift in Sources */,

@@ -43,7 +43,7 @@ class SettingsTableViewController: UITableViewController {
     
     func showLoginView(){
         
-        let mainController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "welcome")
+        let mainController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login")
         
         self.present(mainController, animated: true, completion: nil)
     }

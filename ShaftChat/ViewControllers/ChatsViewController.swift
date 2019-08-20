@@ -128,6 +128,7 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let chatViewController = ChatViewController()
         chatViewController.hidesBottomBarWhenPushed = true
         
+        chatViewController.isGroup = (recentChat[kTYPE] as! String) == kGROUP
         chatViewController.membersToPush = (recentChat[kMEMBERSTOPUSH] as? [String])!
         chatViewController.memberIds = (recentChat[kMEMBERS] as? [String])!
         chatViewController.chatRoomId = (recentChat[kCHATROOMID] as? String)!

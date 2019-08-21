@@ -14,6 +14,7 @@
 		843DAD5C230AD81F000BA321 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DAD5B230AD81F000BA321 /* RegisterViewController.swift */; };
 		845200F5230CD6C500699EE4 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845200F4230CD6C500699EE4 /* Camera.swift */; };
 		845200F7230CE85300699EE4 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845200F6230CE85300699EE4 /* DownloadManager.swift */; };
+		845200F9230CF78000699EE4 /* PhotoMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845200F8230CF78000699EE4 /* PhotoMediaItem.swift */; };
 		847068B522F611E600DCB6BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 847068B422F611E600DCB6BA /* GoogleService-Info.plist */; };
 		847068B722F6154400DCB6BA /* FUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847068B622F6154400DCB6BA /* FUser.swift */; };
 		847068B922F615AA00DCB6BA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847068B822F615AA00DCB6BA /* Constants.swift */; };
@@ -42,6 +43,7 @@
 		843DAD5B230AD81F000BA321 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		845200F4230CD6C500699EE4 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		845200F6230CE85300699EE4 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		845200F8230CF78000699EE4 /* PhotoMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMediaItem.swift; sourceTree = "<group>"; };
 		847068B422F611E600DCB6BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		847068B622F6154400DCB6BA /* FUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUser.swift; sourceTree = "<group>"; };
 		847068B822F615AA00DCB6BA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				8409E10F230A0A70009E1086 /* OutgoingMessage.swift */,
 				8409E111230A134A009E1086 /* IncomingMessages.swift */,
 				845200F4230CD6C500699EE4 /* Camera.swift */,
+				845200F8230CF78000699EE4 /* PhotoMediaItem.swift */,
 				845200F6230CE85300699EE4 /* DownloadManager.swift */,
 			);
 			path = Models;
@@ -305,6 +308,7 @@
 				843DAD5C230AD81F000BA321 /* RegisterViewController.swift in Sources */,
 				84B92A7522F5EE5B0043B283 /* AppDelegate.swift in Sources */,
 				845200F7230CE85300699EE4 /* DownloadManager.swift in Sources */,
+				845200F9230CF78000699EE4 /* PhotoMediaItem.swift in Sources */,
 				847068C322F6B6F000DCB6BA /* SettingsTableViewController.swift in Sources */,
 				845200F5230CD6C500699EE4 /* Camera.swift in Sources */,
 				84D747FF230264A7004AEA88 /* ChatsViewController.swift in Sources */,

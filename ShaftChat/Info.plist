@@ -41,5 +41,17 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>ShaftChat needs to use your camera</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>ShaftChat needs to use your media Library</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>ShaftChat needs to use your photo library</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>ShaftChat needs to use your microphone</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>ShaftChat needs to use your location</string>
+	<key>NSContactsUsageDescription</key>
+	<string>ShaftChat needs to use your contacts</string>
 </dict>
 </plist>

@@ -57,3 +57,76 @@ func uploadImage(image: UIImage, chatRoomId: String, view: UIView, completion: @
     }
 }
 
+func downloadImage(imageUrl: String, completion: @escaping(_ image: UIImage?) -> Void) {
+    
+    let imageURL = NSURL(string: imageUrl)
+    print(imageUrl)
+    let imageFileName = (imageUrl.components(separatedBy: "%").last!).components(separatedBy: "?").first!
+    print("filename \(imageFileName)")
+    
+    if fileExistsAtPath(path: imageFileName) {
+        //exist
+        if let contentsOfFile = UIImage(contentsOfFile: fileInDocumentsDirectory(fileName: imageFileName)) {
+            completion(contentsOfFile)
+        } else {
+            print("could not generate image")
+            completion(nil)
+        }
+    } else {
+        //does not exist
+        
+        let downloadQueue = DispatchQueue(label: "imageDownloadQueue")
+        
+        downloadQueue.async {
+            
+            let data = NSData(contentsOf: imageURL! as URL)
+            
+            if data != nil {
+                
+                var docUrl = getDocumentsUrl()
+                docUrl = docUrl.appendingPathComponent(imageFileName, isDirectory: false)
+                
+                data!.write(to: docUrl, atomically: true)
+                
+                let imageToReturn = UIImage(data: data! as Data)
+                
+                DispatchQueue.main.async {
+                    completion(imageToReturn)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    print("no image in database")
+                    completion(nil)
+                }
+            }
+        }
+    }
+}
+
+//Helpers
+
+func fileInDocumentsDirectory(fileName: String) -> String {
+    
+    let fileUrl = getDocumentsUrl().appendingPathComponent(fileName)
+    return fileUrl.path
+}
+
+func getDocumentsUrl() -> URL {
+    
+    let documentUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
+    
+    return documentUrl!
+}
+
+func fileExistsAtPath(path: String) -> Bool {
+    var doesExist = false
+    
+    let filePath = fileInDocumentsDirectory(fileName: path)
+    let fileManager = FileManager.default
+    
+    if fileManager.fileExists(atPath: filePath) {
+        doesExist = true
+    }
+    
+    return doesExist
+}

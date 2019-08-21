@@ -253,7 +253,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         }
         
         let sharePhoto = UIAlertAction(title: "Photo Library", style: .default) { (alert) in
-            print("Photo Library")
+            camera.presentPhotoLibrary(target: self, canEdit: false)
         }
         
         let shareVideo = UIAlertAction(title: "Video Library", style: .default) { (alert) in
@@ -323,6 +323,26 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             
             outgoingMessage = OutgoingMessage(message: text, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kTEXT)
             
+        }
+        
+        //picture Message
+        if let pic = picture {
+            
+            uploadImage(image: pic, chatRoomId: chatRoomId, view: self.navigationController!.view) { (imageLink) in
+                if imageLink != nil {
+                    
+                    let text = kPICTURE
+                    
+                    outgoingMessage = OutgoingMessage(message: text, pictureLink: imageLink!, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kPICTURE)
+                    
+                    JSQSystemSoundPlayer.jsq_playMessageSentSound()
+                    self.finishSendingMessage()
+                    
+                    outgoingMessage?.sendMessage(chatRoomId: self.chatRoomId, messageDictionary: outgoingMessage!.messageDictionary, memberIds: self.memberIds, membersToPush: self.membersToPush)
+                }
+            }
+            
+            return
         }
         
         JSQSystemSoundPlayer.jsq_playMessageSentSound()

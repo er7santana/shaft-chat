@@ -17,7 +17,7 @@ class Camera {
         delegate = delegate_
     }
     
-    func PresentPhotoLibrary(target: UIViewController, canEdit: Bool) {
+    func presentPhotoLibrary(target: UIViewController, canEdit: Bool) {
         
         if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary) &&
             !UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.savedPhotosAlbum) {
@@ -65,7 +65,7 @@ class Camera {
         return
     }
     
-    func presentMultyCamera(target: UIViewController, canEdit: Bool) {
+    func presentMultiCamera(target: UIViewController, canEdit: Bool) {
         
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
             return

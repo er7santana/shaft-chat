@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class ProfileViewTableViewController: UITableViewController {
 
@@ -37,6 +38,8 @@ class ProfileViewTableViewController: UITableViewController {
     
     @IBAction func blockUserPressed(_ sender: Any) {
         
+        ProgressHUD.show()
+        
         var currentBlockedUserIds = FUser.currentUser()!.blockedUsers
         
         if currentBlockedUserIds.contains(user!.objectId) {
@@ -47,6 +50,9 @@ class ProfileViewTableViewController: UITableViewController {
         }
         
         updateCurrentUserInFirestore(withValues: [kBLOCKEDUSERID: currentBlockedUserIds]) { (error) in
+            
+            ProgressHUD.dismiss()
+            
             if error != nil {
                 print(error!.localizedDescription)
                 return

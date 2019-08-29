@@ -249,7 +249,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let takePhotoOrVideo = UIAlertAction(title: "Camera", style: .default) { (action) in
-            print("camera")
+            camera.presentMultiCamera(target: self, canEdit: false)
         }
         
         let sharePhoto = UIAlertAction(title: "Photo Library", style: .default) { (alert) in
@@ -318,7 +318,15 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         switch messageType {
         case kPICTURE:
-            print("pic has been tapped")
+            
+            let message = messages[indexPath.row]
+            let mediaItem = message.media as! JSQPhotoMediaItem
+            
+            let photos = IDMPhoto.photos(withImages: [mediaItem.image])
+            let browser = IDMPhotoBrowser(photos: photos)
+            
+            self.present(browser!, animated: true, completion: nil)
+            
         case kLOCATION:
             print("location has been tapped")
         case kVIDEO:

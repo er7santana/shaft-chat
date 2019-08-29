@@ -257,7 +257,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         }
         
         let shareVideo = UIAlertAction(title: "Video Library", style: .default) { (alert) in
-            print("video library")
+            camera.presentVideoLibrary(target: self, canEdit: false)
         }
         
         let shareLocation = UIAlertAction(title: "Share Location", style: .default) { (alert) in
@@ -331,7 +331,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             uploadImage(image: pic, chatRoomId: chatRoomId, view: self.navigationController!.view) { (imageLink) in
                 if imageLink != nil {
                     
-                    let text = kPICTURE
+                    let text = "[\(kPICTURE)]"
                     
                     outgoingMessage = OutgoingMessage(message: text, pictureLink: imageLink!, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kPICTURE)
                     
@@ -344,6 +344,31 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             
             return
         }
+        
+        //send video
+        if let video = video {
+            
+            let videoData = NSData(contentsOfFile: video.path!)
+            let dateThumbnail = videoThumbnail(video: video).jpegData(compressionQuality: 0.3)
+            
+            uploadVideo(video: videoData!, chatRoomId: chatRoomId, view: self.navigationController!.view) { (videoLink) in
+                
+                if videoLink != nil {
+                    
+                    let text = "[\(kVIDEO)]"
+                    
+                    outgoingMessage = OutgoingMessage(message: text, video: videoLink!, thumbNail: dateThumbnail! as NSData, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kVIDEO)
+                    
+                    JSQSystemSoundPlayer.jsq_playMessageSentSound()
+                    self.finishSendingMessage()
+                    
+                    outgoingMessage?.sendMessage(chatRoomId: self.chatRoomId, messageDictionary: outgoingMessage!.messageDictionary, memberIds: self.memberIds, membersToPush: self.membersToPush)
+                }
+            }
+            
+            return
+        }
+        
         
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         self.finishSendingMessage()
@@ -622,7 +647,19 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         picker.dismiss(animated: true, completion: nil)
     }
-    
+//
+//    //MARK: - TextViewDelegate
+//
+//    override func textViewDidBeginEditing(_ textView: UITextView) {
+//        self.inputToolbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = false
+//        super.textViewDidBeginEditing(textView)
+//    }
+//
+//    override func textViewDidEndEditing(_ textView: UITextView) {
+//        self.inputToolbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+//        super.textViewDidEndEditing(textView)
+//    }
+//
     //MARK: - Helper Functions
     
     func removeBadMessages(allMessages: [NSDictionary]) -> [NSDictionary] {

@@ -15,7 +15,7 @@ import AVFoundation
 import AVKit
 import FirebaseFirestore
 
-class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, IQAudioRecorderViewControllerDelegate {
 
     var chatRoomId: String!
     var memberIds: [String]!
@@ -300,7 +300,8 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             updateSendButton(isSend: false)
         } else {
             
-            
+            let audioViewController = AudioViewController(delegate_: self)
+            audioViewController.presentAudioRecorder(target: self)
         }
     }
     
@@ -410,6 +411,27 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             return
         }
         
+        //send audio
+        if let audioPath = audio {
+            
+            uploadAudio(audioPath: audioPath, chatRoomId: chatRoomId, view: (self.navigationController?.view)!) { (audioLink) in
+                
+                if audioLink != nil {
+                    
+                    let text = "[\(kAUDIO)]"
+                    
+                    outgoingMessage = OutgoingMessage(message: text, audioLink: audioLink!, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kAUDIO)
+                    
+                    JSQSystemSoundPlayer.jsq_playMessageSentSound()
+                    self.finishSendingMessage()
+                    
+                    outgoingMessage!.sendMessage(chatRoomId: self.chatRoomId, messageDictionary: outgoingMessage!.messageDictionary, memberIds: self.memberIds, membersToPush: self.membersToPush)
+                    
+                }
+            }
+            
+            return
+        }
         
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         self.finishSendingMessage()
@@ -622,6 +644,18 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         } else {
             self.inputToolbar.contentView.rightBarButtonItem.setImage(UIImage(named: "mic"), for: .normal)
         }
+    }
+    
+    //MARK: - IQAudioRecorderDelegate
+    func audioRecorderController(_ controller: IQAudioRecorderViewController, didFinishWithAudioAtPath filePath: String) {
+        
+        controller.dismiss(animated: true, completion: nil)
+        self.sendMessage(text: nil, date: Date(), picture: nil, location: nil, video: nil, audio: filePath)
+    }
+    
+    func audioRecorderControllerDidCancel(_ controller: IQAudioRecorderViewController) {
+        
+        controller.dismiss(animated: true, completion: nil)
     }
     
     //MARK: - Update UI

@@ -334,7 +334,16 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             self.present(browser!, animated: true, completion: nil)
             
         case kLOCATION:
-            print("location has been tapped")
+            
+            let message = messages[indexPath.row]
+            let mediaItem = message.media as! JSQLocationMediaItem
+            
+            let mapViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapViewController") as! MapViewController
+            
+            mapViewController.location = mediaItem.location
+            
+            self.navigationController?.pushViewController(mapViewController, animated: true)
+            
         case kVIDEO:
             
             let message = messages[indexPath.row]

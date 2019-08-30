@@ -379,7 +379,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGr-WB-qlA">
-                                                    <rect key="frame" x="104" y="11" width="513" height="41"/>
+                                                    <rect key="frame" x="104" y="11" width="164" height="41"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="41" id="fHT-Dm-BMD"/>
                                                     </constraints>
@@ -388,7 +388,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorem ipsolom text last message typed" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1P-bH-ggh">
-                                                    <rect key="frame" x="104" y="53.666666666666657" width="549" height="38"/>
+                                                    <rect key="frame" x="104" y="53.666666666666657" width="200" height="38"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="38" id="tzq-Ee-ZYJ"/>
                                                     </constraints>
@@ -397,7 +397,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQZ-5X-1kM">
-                                                    <rect key="frame" x="661" y="56.666666666666657" width="30" height="30"/>
+                                                    <rect key="frame" x="312" y="56.666666666666657" width="30" height="30"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tv-vR-dlR">
                                                             <rect key="frame" x="2" y="8" width="27" height="17"/>
@@ -415,7 +415,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/04/2019" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lA-8w-eug">
-                                                    <rect key="frame" x="619" y="21" width="72" height="21"/>
+                                                    <rect key="frame" x="270" y="21" width="72" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="0Nb-oH-1Ph"/>
                                                         <constraint firstAttribute="width" constant="72" id="XyM-MR-UjN"/>
@@ -801,6 +801,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0kZ-iV-lsN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6948" y="-223.89162561576356"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="PjB-u2-3Ev">
+            <objects>
+                <viewController storyboardIdentifier="mapViewController" id="HtR-B4-Sgj" customClass="MapViewController" customModule="ShaftChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Nj-4D-UZy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0O2-e5-vHL">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0O2-e5-vHL" firstAttribute="top" secondItem="WAk-L1-SDa" secondAttribute="top" id="8W6-qy-qse"/>
+                            <constraint firstItem="WAk-L1-SDa" firstAttribute="trailing" secondItem="0O2-e5-vHL" secondAttribute="trailing" id="HDW-Cg-4kf"/>
+                            <constraint firstItem="0O2-e5-vHL" firstAttribute="leading" secondItem="WAk-L1-SDa" secondAttribute="leading" id="cHa-sI-LYM"/>
+                            <constraint firstItem="WAk-L1-SDa" firstAttribute="bottom" secondItem="0O2-e5-vHL" secondAttribute="bottom" id="f4H-mh-fb6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WAk-L1-SDa"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="0O2-e5-vHL" id="on8-tj-Zsv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IQx-u8-vCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7735" y="-224"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Ppz-jJ-x9l">

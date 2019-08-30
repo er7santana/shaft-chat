@@ -17,6 +17,8 @@ import FirebaseFirestore
 
 class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, IQAudioRecorderViewControllerDelegate {
 
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     var chatRoomId: String!
     var memberIds: [String]!
     var membersToPush: [String]!
@@ -261,7 +263,10 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         }
         
         let shareLocation = UIAlertAction(title: "Share Location", style: .default) { (alert) in
-            print("location")
+            
+            if self.haveAccessToLocation() {
+                self.sendMessage(text: nil, date: Date(), picture: nil, location: kLOCATION, video: nil, audio: nil)
+            }
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .default) {(alert) in
@@ -432,6 +437,18 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             
             return
         }
+        
+        // send location message
+        if location != nil {
+            
+            let latitude: NSNumber = NSNumber(value: appDelegate.coordinates!.latitude)
+            let longitude: NSNumber = NSNumber(value: appDelegate.coordinates!.longitude)
+            
+            let text = "[\(kLOCATION)]"
+            
+            outgoingMessage = OutgoingMessage(message: text, latitude: latitude, longitude: longitude, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kLOCATION)
+        }
+        
         
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         self.finishSendingMessage()
@@ -735,6 +752,21 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
 //        super.textViewDidEndEditing(textView)
 //    }
 //
+    
+    //MARK: - Access location
+    
+    func haveAccessToLocation() -> Bool {
+        
+        if appDelegate.locationManager != nil {
+            
+            return true
+        } else {
+          ProgressHUD.showError("Please give access to location in Settings App")
+            return false
+        }
+    }
+    
+    
     //MARK: - Helper Functions
     
     func removeBadMessages(allMessages: [NSDictionary]) -> [NSDictionary] {

@@ -103,16 +103,6 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         
         loadMessages()
-//
-//        // fix for iPhone X
-//
-//        let constraint = perform(Selector(("toolbarBottomLayoutGuide")))?.takeUnretainedValue() as! NSLayoutConstraint
-//
-//        constraint.priority = UILayoutPriority(rawValue: 999)
-//
-//        self.inputToolbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-//
-//        // end of fix For iPhone X
 
         //custom send button
         self.inputToolbar.contentView.rightBarButtonItem.setImage(UIImage(named: "mic"), for: .normal)

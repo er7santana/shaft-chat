@@ -69,6 +69,18 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
     [self toggleSendButtonEnabled];
 }
 
+-(void) didMoveToWindow{
+    [super didMoveToWindow];
+    if (@available(iOS 11.0, *)) {
+        
+        UILayoutGuide *layoutGuide = self.window.safeAreaLayoutGuide;
+        
+        if (layoutGuide != nil){
+            [[self bottomAnchor] constraintLessThanOrEqualToSystemSpacingBelowAnchor:layoutGuide.bottomAnchor multiplier:1.0].active = YES;
+        }
+    }
+}
+
 - (JSQMessagesToolbarContentView *)loadToolbarContentView
 {
     NSArray *nibViews = [[NSBundle bundleForClass:[JSQMessagesInputToolbar class]] loadNibNamed:NSStringFromClass([JSQMessagesToolbarContentView class])

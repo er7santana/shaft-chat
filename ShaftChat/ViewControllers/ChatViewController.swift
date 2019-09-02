@@ -83,11 +83,12 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     }()
     
     
-    // fix for iPhone X
-    override func viewDidLayoutSubviews() {
-        perform(Selector(("jsq_updateCollectionViewInsets")))
-    }
-    // end of fix For iPhone X
+    //    // fix for iPhone X
+        override func viewDidLayoutSubviews() {
+            perform(Selector(("jsq_updateCollectionViewInsets")))
+        }
+        // end of fix For iPhone X
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,7 +120,10 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     @objc func infoButtonPressed() {
     
-        print("info button pressed ..... ")
+        let mediaViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mediaView") as! PicturesCollectionViewController
+        mediaViewController.allImageLinks = allPictureMessages
+        
+        self.navigationController?.pushViewController(mediaViewController, animated: true)
     }
     
     @objc func showGroup() {
@@ -565,7 +569,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             
             self.initialLoadComplete = true
             
-            //get picture Messages
+            self.getPictureMessages()
             
             self.getOldMessagesInBackground()
             
@@ -601,7 +605,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                                 
                                 //this is for picture messages
                                 if type  as! String == kPICTURE {
-                                    //add to pictures
+                                    self.addNewPictureMessageLink(link: item[kPICTURE] as! String)
                                 }
                                 
                                 if self.insertInitialLoadedMessages(messageDictionary: item) {
@@ -632,7 +636,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                 
                 self.loadedMessages = self.removeBadMessages(allMessages: sorted) + self.loadedMessages
                 
-                //get the picture messages
+                self.getPictureMessages()
                 
                 self.maxMessagesNumber = self.loadedMessages.count - self.loadedMessagesCount - 1
                 self.minMessagesNumber = self.maxMessagesNumber - kNUMBEROFMESSAGES
@@ -961,6 +965,22 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     
     //MARK: - Helper Functions
+    
+    func addNewPictureMessageLink(link: String) {
+        allPictureMessages.append(link)
+    }
+    
+    func getPictureMessages() {
+        
+        allPictureMessages = []
+        for message in loadedMessages {
+            
+            if message[kTYPE] as! String == kPICTURE {
+                
+                allPictureMessages.append(message[kPICTURE] as! String)
+            }
+        }
+    }
     
     func removeBadMessages(allMessages: [NSDictionary]) -> [NSDictionary] {
         

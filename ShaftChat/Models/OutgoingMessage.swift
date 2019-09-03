@@ -61,7 +61,7 @@ class OutgoingMessage {
             reference(.Message).document(memberId).collection(chatRoomId).document(messageId).setData(messageDictionary as! [String: Any])
         }
         
-        // update recent Chat
+        updateRecents(chatRoomId: chatRoomId, lastMessage: messageDictionary[kMESSAGE] as! String)
         
         //send Push notification
     }

@@ -82,12 +82,24 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         return subtitle
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        finishSendingMessage()
+        clearRecentCounter(chatRoomId: chatRoomId)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        clearRecentCounter(chatRoomId: chatRoomId)
+    }
     
     //    // fix for iPhone X
-        override func viewDidLayoutSubviews() {
-            perform(Selector(("jsq_updateCollectionViewInsets")))
-        }
-        // end of fix For iPhone X
+    override func viewDidLayoutSubviews() {
+        perform(Selector(("jsq_updateCollectionViewInsets")))
+        
+        finishSendingMessage()
+    }
+    // end of fix For iPhone X
     
     
     override func viewDidLoad() {
@@ -151,6 +163,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     
     @objc func backAction() {
         
+        clearRecentCounter(chatRoomId: chatRoomId)
         removeListeners()
         self.navigationController?.popViewController(animated: true)
     }

@@ -77,6 +77,18 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func cleanCacheButtonPressed(_ sender: Any) {
+        
+        do {
+            let files = try FileManager.default.contentsOfDirectory(atPath: getDocumentsUrl().path)
+            
+            for file in files {
+                try FileManager.default.removeItem(atPath: "\(getDocumentsUrl().path)/\(file)")
+            }
+            
+            ProgressHUD.showSuccess("Cache cleaned")
+        } catch {
+            ProgressHUD.showError("Could not clean Media files")
+        }
     }
     
     @IBAction func tellAFriendButtonPressed(_ sender: Any) {

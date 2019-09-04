@@ -15,6 +15,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var deleteButtonOutlet: UIButton!
     @IBOutlet weak var showAvatarStatusSwitch: UISwitch!
+    @IBOutlet weak var versionLabel: UILabel!
     
     let userDefaults = UserDefaults.standard
     var avatarSwitchStatus = false
@@ -38,7 +39,7 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -170,7 +171,9 @@ class SettingsTableViewController: UITableViewController {
             }
         }
         
-        //set app version
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            versionLabel.text = version
+        }
     }
     
     //MARK: Delete user

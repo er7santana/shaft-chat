@@ -12,6 +12,7 @@ import ProgressHUD
 class BlockedUsersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UserTableViewCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var notificationLabel: UILabel!
     
     var blockedUsersArray: [FUser] = []
     
@@ -25,6 +26,8 @@ class BlockedUsersViewController: UIViewController, UITableViewDataSource, UITab
     //MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        notificationLabel.isHidden = blockedUsersArray.count != 0
         
         return blockedUsersArray.count
     }

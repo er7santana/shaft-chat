@@ -557,6 +557,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56V-lT-3or">
                                                     <rect key="frame" x="16" y="7" width="319" height="30"/>
                                                     <state key="normal" title="Blocked users"/>
+                                                    <connections>
+                                                        <segue destination="bOa-xV-Qft" kind="show" id="CWQ-dx-4Ut"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -792,6 +795,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mX-AC-Pge" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3900" y="429.31034482758622"/>
+        </scene>
+        <!--Blocked Users-->
+        <scene sceneID="bKX-OU-zjV">
+            <objects>
+                <viewController id="bOa-xV-Qft" customClass="BlockedUsersViewController" customModule="ShaftChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JsY-1T-IEM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PkT-1y-AKc">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userTableViewCell" rowHeight="80" id="gDa-Xz-cEs" customClass="UserTableViewCell" customModule="ShaftChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gDa-Xz-cEs" id="geb-qw-FMw">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="Sfd-6V-Qdh">
+                                                    <rect key="frame" x="16" y="10" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="9I1-j4-8ID"/>
+                                                        <constraint firstAttribute="height" constant="60" id="ax2-Uz-3Ve"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEJ-aG-Ddf">
+                                                    <rect key="frame" x="84" y="28" width="276" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Sfd-6V-Qdh" firstAttribute="leading" secondItem="geb-qw-FMw" secondAttribute="leading" constant="16" id="LbD-0U-nSg"/>
+                                                <constraint firstItem="HEJ-aG-Ddf" firstAttribute="centerY" secondItem="geb-qw-FMw" secondAttribute="centerY" id="Z7g-4p-hAb"/>
+                                                <constraint firstItem="Sfd-6V-Qdh" firstAttribute="centerY" secondItem="geb-qw-FMw" secondAttribute="centerY" id="mWU-Jx-3SX"/>
+                                                <constraint firstItem="HEJ-aG-Ddf" firstAttribute="trailing" secondItem="geb-qw-FMw" secondAttribute="trailingMargin" id="qgj-Xw-fa1"/>
+                                                <constraint firstItem="HEJ-aG-Ddf" firstAttribute="leading" secondItem="Sfd-6V-Qdh" secondAttribute="trailing" constant="8" id="xHM-kb-vQM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="avatarImageView" destination="Sfd-6V-Qdh" id="kqJ-KP-rcn"/>
+                                            <outlet property="fullNameLabel" destination="HEJ-aG-Ddf" id="BIP-m6-DrB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bOa-xV-Qft" id="APH-XC-RMC"/>
+                                    <outlet property="delegate" destination="bOa-xV-Qft" id="7Ft-Rf-Y2M"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PkT-1y-AKc" firstAttribute="top" secondItem="Va2-sG-oP8" secondAttribute="top" id="Sje-0g-sG2"/>
+                            <constraint firstItem="Va2-sG-oP8" firstAttribute="trailing" secondItem="PkT-1y-AKc" secondAttribute="trailing" id="b8h-zR-0UZ"/>
+                            <constraint firstItem="Va2-sG-oP8" firstAttribute="bottom" secondItem="PkT-1y-AKc" secondAttribute="bottom" id="gZd-qA-1Sc"/>
+                            <constraint firstItem="PkT-1y-AKc" firstAttribute="leading" secondItem="Va2-sG-oP8" secondAttribute="leading" id="ihE-Wg-adA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Va2-sG-oP8"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Blocked Users" id="Xj5-x3-nXI"/>
+                    <connections>
+                        <outlet property="tableView" destination="PkT-1y-AKc" id="xbv-tg-Mxp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BrZ-Fc-DO1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4732" y="916"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="oOh-CN-a7g">

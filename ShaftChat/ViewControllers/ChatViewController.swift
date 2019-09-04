@@ -81,10 +81,14 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         subtitle.font = UIFont(name: subtitle.font.fontName, size: 10)
         return subtitle
     }()
+
+    override func viewDidAppear(_ animated: Bool) {
+        
+        finishSendingMessage()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        finishSendingMessage()
         clearRecentCounter(chatRoomId: chatRoomId)
     }
     

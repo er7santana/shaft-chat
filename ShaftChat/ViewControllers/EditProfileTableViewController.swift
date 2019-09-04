@@ -52,7 +52,7 @@ class EditProfileTableViewController: UITableViewController {
             
             let fullName = firstNameTextField.text! + " " + surnameTextField.text!
             
-            var withValues = [kFIRSTNAME : firstNameTextField.text!, kLASTNAME : surnameTextField.text!, kFULLNAME : fullName]
+            var withValues = [kFIRSTNAME : firstNameTextField.text!, kLASTNAME : surnameTextField.text!, kFULLNAME : fullName, kEMAIL : emailTextField.text!]
             
             if avatarImage != nil {
                 

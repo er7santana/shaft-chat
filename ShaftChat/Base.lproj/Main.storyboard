@@ -682,6 +682,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MqH-61-x4o">
                                                     <rect key="frame" x="16" y="7" width="317" height="30"/>
                                                     <state key="normal" title="Terms and conditions"/>
+                                                    <connections>
+                                                        <segue destination="fbF-Ui-YtM" kind="show" id="ibc-sJ-BhE"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -880,6 +883,37 @@
             </objects>
             <point key="canvasLocation" x="4732" y="915.51724137931035"/>
         </scene>
+        <!--Terms & Conditions-->
+        <scene sceneID="vC3-Rn-dHD">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="fbF-Ui-YtM" customClass="TermsAndConditionsViewController" customModule="ShaftChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cg1-g5-b5y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hWE-Vs-qNG">
+                                <rect key="frame" x="16" y="98" width="343" height="680"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hWE-Vs-qNG" firstAttribute="top" secondItem="jg9-RF-ZNB" secondAttribute="top" constant="10" id="CVq-SR-z83"/>
+                            <constraint firstItem="hWE-Vs-qNG" firstAttribute="bottom" secondItem="jg9-RF-ZNB" secondAttribute="bottom" id="HlL-vu-gbc"/>
+                            <constraint firstItem="hWE-Vs-qNG" firstAttribute="leading" secondItem="jg9-RF-ZNB" secondAttribute="leading" constant="16" id="gTe-FM-lFM"/>
+                            <constraint firstItem="jg9-RF-ZNB" firstAttribute="trailing" secondItem="hWE-Vs-qNG" secondAttribute="trailing" constant="16" id="jli-Po-Ufk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jg9-RF-ZNB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Terms &amp; Conditions" id="3Wj-Ve-pnt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OUX-Tj-Zb4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5672.8000000000002" y="422.66009852216752"/>
+        </scene>
         <!--Backgrounds-->
         <scene sceneID="yPE-0P-urq">
             <objects>
@@ -931,7 +965,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pr6-XY-TFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5823" y="510"/>
+            <point key="canvasLocation" x="5673" y="1163"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="oOh-CN-a7g">

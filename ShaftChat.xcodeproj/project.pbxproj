@@ -11,6 +11,7 @@
 		1306250423207EE9007031D6 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1306250323207EE9007031D6 /* CountryCode.swift */; };
 		132C8905231DCDC0005D392C /* PicturesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C8904231DCDC0005D392C /* PicturesCollectionViewController.swift */; };
 		132C8907231DCE07005D392C /* PicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C8906231DCE07005D392C /* PicturesCollectionViewCell.swift */; };
+		13B02B3423209D15007F9463 /* JSQMessagesInputToolBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B02B3323209D15007F9463 /* JSQMessagesInputToolBarExtension.swift */; };
 		13C83841231F41F60072666E /* BlockedUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83840231F41F60072666E /* BlockedUsersViewController.swift */; };
 		13C83843231F570D0072666E /* BackgroundCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83842231F570D0072666E /* BackgroundCollectionViewController.swift */; };
 		13C83845231F572D0072666E /* BackgroundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83844231F572D0072666E /* BackgroundCollectionViewCell.swift */; };
@@ -52,6 +53,7 @@
 		1306250323207EE9007031D6 /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		132C8904231DCDC0005D392C /* PicturesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewController.swift; sourceTree = "<group>"; };
 		132C8906231DCE07005D392C /* PicturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewCell.swift; sourceTree = "<group>"; };
+		13B02B3323209D15007F9463 /* JSQMessagesInputToolBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQMessagesInputToolBarExtension.swift; sourceTree = "<group>"; };
 		13C83840231F41F60072666E /* BlockedUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUsersViewController.swift; sourceTree = "<group>"; };
 		13C83842231F570D0072666E /* BackgroundCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewController.swift; sourceTree = "<group>"; };
 		13C83844231F572D0072666E /* BackgroundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -104,6 +106,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13B02B3223209CEF007F9463 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				13B02B3323209D15007F9463 /* JSQMessagesInputToolBarExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		1F360530B4A4302ED3F40365 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +162,7 @@
 		84B92A7322F5EE5B0043B283 /* ShaftChat */ = {
 			isa = PBXGroup;
 			children = (
+				13B02B3223209CEF007F9463 /* Extensions */,
 				847068BF22F68A5500DCB6BA /* Helpers */,
 				84B92A8622F5EE710043B283 /* Models */,
 				84B92A8722F5EE780043B283 /* CustomCells */,
@@ -343,6 +354,7 @@
 				13C83845231F572D0072666E /* BackgroundCollectionViewCell.swift in Sources */,
 				13C83847231F5C6F0072666E /* TermsAndConditionsViewController.swift in Sources */,
 				842920822304F4AB005160CA /* ProfileViewTableViewController.swift in Sources */,
+				13B02B3423209D15007F9463 /* JSQMessagesInputToolBarExtension.swift in Sources */,
 				1306250423207EE9007031D6 /* CountryCode.swift in Sources */,
 				84C5FB042318A394001F840A /* MapViewController.swift in Sources */,
 				13C83849231F5EC30072666E /* EditProfileTableViewController.swift in Sources */,

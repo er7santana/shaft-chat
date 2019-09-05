@@ -83,25 +83,25 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     }()
 
     override func viewDidAppear(_ animated: Bool) {
-        
+        super.viewDidAppear(animated)
         finishSendingMessage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
+        super.viewWillAppear(animated)
         clearRecentCounter(chatRoomId: chatRoomId)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
+        super.viewWillDisappear(animated)
         clearRecentCounter(chatRoomId: chatRoomId)
     }
     
-    //    // fix for iPhone X
+    // fix for iPhone X
     override func viewDidLayoutSubviews() {
         perform(Selector(("jsq_updateCollectionViewInsets")))
-        
-        finishSendingMessage()
     }
     // end of fix For iPhone X
     
@@ -130,6 +130,19 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         loadMessages()
 
+        
+//                // fix for iPhone X
+//        
+//                let constraint = perform(Selector(("toolbarBottomLayoutGuide")))?.takeUnretainedValue() as! NSLayoutConstraint
+//        
+//                constraint.priority = UILayoutPriority(rawValue: 999)
+//        
+//                self.inputToolbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+//        
+//                // end of fix For iPhone X
+//        
+//        
+        
         //custom send button
         self.inputToolbar.contentView.rightBarButtonItem.setImage(UIImage(named: "mic"), for: .normal)
         self.inputToolbar.contentView.rightBarButtonItem.setTitle("", for: .normal)

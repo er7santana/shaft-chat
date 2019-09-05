@@ -60,7 +60,7 @@ func createRecent(members: [String], chatRoomId: String, withUserUsername: Strin
         }
         for userId in tempMembers {
             
-            createRecentItems(userId: userId, chatRoomId: chatRoomId, members: members, withUsername: "", type: type, users: users, avatarOfGroup: avatarOfGroup)
+            createRecentItems(userId: userId, chatRoomId: chatRoomId, members: members, withUsername: withUserUsername, type: type, users: users, avatarOfGroup: avatarOfGroup)
             
         }
     }
@@ -111,7 +111,7 @@ func restartRecentChat(recent: NSDictionary) {
         
     } else if recent[kTYPE] as! String == kGROUP {
         
-        createRecent(members: recent[kMEMBERSTOPUSH] as! [String], chatRoomId: recent[kCHATROOMID] as! String, withUserUsername: recent[kWITHUSERUSERNAME] as! String, type: kGROUP, users: nil, avatarOfGroup: recent[kAVATAR] as? String)
+        createRecent(members: recent[kMEMBERSTOPUSH] as! [String], chatRoomId: recent[kCHATROOMID] as! String, withUserUsername: recent[kWITHUSERFULLNAME] as! String, type: kGROUP, users: nil, avatarOfGroup: recent[kAVATAR] as? String)
     }
 }
 
@@ -199,6 +199,18 @@ func clearRecentCounterItem(recent: NSDictionary) {
     reference(.Recent).document(recent[kRECENTID] as! String).updateData([kCOUNTER : 0])
 }
 
+// group
+
+func startGroupChat(group: Group) {
+    let chatRoomId = group.groupDictionary[kGROUPID] as! String
+    let members = group.groupDictionary[kMEMBERS] as! [String]
+    
+    createRecent(members: members, chatRoomId: chatRoomId, withUserUsername: group.groupDictionary[kNAME] as! String, type: kGROUP, users: nil, avatarOfGroup: group.groupDictionary[kAVATAR] as? String)
+}
+
+func createRecentForNewMembers(groupId: String, groupName: String, membersToPush: [String], avatar: String) {
+    createRecent(members: membersToPush, chatRoomId: groupId, withUserUsername: groupName, type: kGROUP, users: nil, avatarOfGroup: avatar)
+}
 
 func updateExistingRecentWithNewValues(chatRoomId: String, memberIds: [String], withValues: [String : Any]) {
     

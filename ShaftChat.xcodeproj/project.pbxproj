@@ -11,6 +11,8 @@
 		1306250423207EE9007031D6 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1306250323207EE9007031D6 /* CountryCode.swift */; };
 		132C8905231DCDC0005D392C /* PicturesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C8904231DCDC0005D392C /* PicturesCollectionViewController.swift */; };
 		132C8907231DCE07005D392C /* PicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C8906231DCE07005D392C /* PicturesCollectionViewCell.swift */; };
+		1333B8D92320B6BE0017A3A6 /* GroupMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333B8D82320B6BE0017A3A6 /* GroupMemberCollectionViewCell.swift */; };
+		1333B8DB2320B8F20017A3A6 /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333B8DA2320B8F20017A3A6 /* NewGroupViewController.swift */; };
 		13B02B3423209D15007F9463 /* JSQMessagesInputToolBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B02B3323209D15007F9463 /* JSQMessagesInputToolBarExtension.swift */; };
 		13C83841231F41F60072666E /* BlockedUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83840231F41F60072666E /* BlockedUsersViewController.swift */; };
 		13C83843231F570D0072666E /* BackgroundCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83842231F570D0072666E /* BackgroundCollectionViewController.swift */; };
@@ -53,6 +55,8 @@
 		1306250323207EE9007031D6 /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		132C8904231DCDC0005D392C /* PicturesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewController.swift; sourceTree = "<group>"; };
 		132C8906231DCE07005D392C /* PicturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewCell.swift; sourceTree = "<group>"; };
+		1333B8D82320B6BE0017A3A6 /* GroupMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberCollectionViewCell.swift; sourceTree = "<group>"; };
+		1333B8DA2320B8F20017A3A6 /* NewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
 		13B02B3323209D15007F9463 /* JSQMessagesInputToolBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQMessagesInputToolBarExtension.swift; sourceTree = "<group>"; };
 		13C83840231F41F60072666E /* BlockedUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUsersViewController.swift; sourceTree = "<group>"; };
 		13C83842231F570D0072666E /* BackgroundCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 				132C8906231DCE07005D392C /* PicturesCollectionViewCell.swift */,
 				13C83844231F572D0072666E /* BackgroundCollectionViewCell.swift */,
 				84C7163B23065B8200BE5C52 /* RecentChatsTableViewCell.swift */,
+				1333B8D82320B6BE0017A3A6 /* GroupMemberCollectionViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 				842920812304F4AB005160CA /* ProfileViewTableViewController.swift */,
 				84C5FB032318A394001F840A /* MapViewController.swift */,
 				132C8904231DCDC0005D392C /* PicturesCollectionViewController.swift */,
+				1333B8DA2320B8F20017A3A6 /* NewGroupViewController.swift */,
 				1306250123207717007031D6 /* ContactsTableViewController.swift */,
 				13C83840231F41F60072666E /* BlockedUsersViewController.swift */,
 				13C83842231F570D0072666E /* BackgroundCollectionViewController.swift */,
@@ -345,6 +351,7 @@
 			files = (
 				84C7163C23065B8200BE5C52 /* RecentChatsTableViewCell.swift in Sources */,
 				8409E110230A0A70009E1086 /* OutgoingMessage.swift in Sources */,
+				1333B8D92320B6BE0017A3A6 /* GroupMemberCollectionViewCell.swift in Sources */,
 				13C83843231F570D0072666E /* BackgroundCollectionViewController.swift in Sources */,
 				847068B722F6154400DCB6BA /* FUser.swift in Sources */,
 				84C7163A23063F5300BE5C52 /* Recent.swift in Sources */,
@@ -355,6 +362,7 @@
 				13C83847231F5C6F0072666E /* TermsAndConditionsViewController.swift in Sources */,
 				842920822304F4AB005160CA /* ProfileViewTableViewController.swift in Sources */,
 				13B02B3423209D15007F9463 /* JSQMessagesInputToolBarExtension.swift in Sources */,
+				1333B8DB2320B8F20017A3A6 /* NewGroupViewController.swift in Sources */,
 				1306250423207EE9007031D6 /* CountryCode.swift in Sources */,
 				84C5FB042318A394001F840A /* MapViewController.swift in Sources */,
 				13C83849231F5EC30072666E /* EditProfileTableViewController.swift in Sources */,

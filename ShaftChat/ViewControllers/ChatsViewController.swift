@@ -55,9 +55,7 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBAction func createNewChatButtonPressed(_ sender: Any) {
         
-        let usersViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "usersTableView") as! UsersTableViewController
-        
-        self.navigationController?.pushViewController(usersViewController, animated: true)
+        selectUserForChat(isGroup: false)
     }
     
     //MARK: - TableViewDataSource
@@ -175,6 +173,15 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // MARK: - Helper functions
     
+    func selectUserForChat(isGroup: Bool) {
+        
+        let contactsViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "contactsView") as! ContactsTableViewController
+        
+        contactsViewController.isGroup = isGroup
+        
+        self.navigationController?.pushViewController(contactsViewController, animated: true)
+    }
+    
     func getSelectedChat (indexPath: IndexPath) -> NSDictionary {
      
         var selectedChat: NSDictionary!
@@ -210,7 +217,7 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @objc func newGroupButtonPressed() {
-        
+        selectUserForChat(isGroup: true)
     }
     
     func showUserProfile(user: FUser) {

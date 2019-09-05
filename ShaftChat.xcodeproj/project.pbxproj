@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1306250223207717007031D6 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1306250123207717007031D6 /* ContactsTableViewController.swift */; };
+		1306250423207EE9007031D6 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1306250323207EE9007031D6 /* CountryCode.swift */; };
 		132C8905231DCDC0005D392C /* PicturesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C8904231DCDC0005D392C /* PicturesCollectionViewController.swift */; };
 		132C8907231DCE07005D392C /* PicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C8906231DCE07005D392C /* PicturesCollectionViewCell.swift */; };
 		13C83841231F41F60072666E /* BlockedUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83840231F41F60072666E /* BlockedUsersViewController.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1306250123207717007031D6 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
+		1306250323207EE9007031D6 /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		132C8904231DCDC0005D392C /* PicturesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewController.swift; sourceTree = "<group>"; };
 		132C8906231DCE07005D392C /* PicturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewCell.swift; sourceTree = "<group>"; };
 		13C83840231F41F60072666E /* BlockedUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUsersViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 				845200F8230CF78000699EE4 /* PhotoMediaItem.swift */,
 				84695ED4231779E8000408E4 /* VideoMessage.swift */,
 				845200F6230CE85300699EE4 /* DownloadManager.swift */,
+				1306250323207EE9007031D6 /* CountryCode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				842920812304F4AB005160CA /* ProfileViewTableViewController.swift */,
 				84C5FB032318A394001F840A /* MapViewController.swift */,
 				132C8904231DCDC0005D392C /* PicturesCollectionViewController.swift */,
+				1306250123207717007031D6 /* ContactsTableViewController.swift */,
 				13C83840231F41F60072666E /* BlockedUsersViewController.swift */,
 				13C83842231F570D0072666E /* BackgroundCollectionViewController.swift */,
 				13C83846231F5C6F0072666E /* TermsAndConditionsViewController.swift */,
@@ -332,10 +338,12 @@
 				847068B722F6154400DCB6BA /* FUser.swift in Sources */,
 				84C7163A23063F5300BE5C52 /* Recent.swift in Sources */,
 				8409E112230A134A009E1086 /* IncomingMessages.swift in Sources */,
+				1306250223207717007031D6 /* ContactsTableViewController.swift in Sources */,
 				84D747FB230222BA004AEA88 /* UserTableViewCell.swift in Sources */,
 				13C83845231F572D0072666E /* BackgroundCollectionViewCell.swift in Sources */,
 				13C83847231F5C6F0072666E /* TermsAndConditionsViewController.swift in Sources */,
 				842920822304F4AB005160CA /* ProfileViewTableViewController.swift in Sources */,
+				1306250423207EE9007031D6 /* CountryCode.swift in Sources */,
 				84C5FB042318A394001F840A /* MapViewController.swift in Sources */,
 				13C83849231F5EC30072666E /* EditProfileTableViewController.swift in Sources */,
 				132C8907231DCE07005D392C /* PicturesCollectionViewCell.swift in Sources */,

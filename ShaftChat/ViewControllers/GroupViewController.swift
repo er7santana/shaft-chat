@@ -60,7 +60,7 @@ class GroupViewController: UIViewController {
         
         updateExistingRecentWithNewValues(chatRoomId: group[kGROUPID] as! String, memberIds: group[kMEMBERS] as! [String], withValues: withValues)
         
-        navigationController?.popViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     @objc func inviteUsers() {

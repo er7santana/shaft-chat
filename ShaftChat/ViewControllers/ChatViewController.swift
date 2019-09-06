@@ -147,8 +147,9 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
     }
     
     @objc func showGroup() {
-    
-        print("show group ..... ")
+        let groupViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "groupViewController") as! GroupViewController
+        groupViewController.group = group!
+        navigationController?.pushViewController(groupViewController, animated: true)
     }
     
     @objc func showUserProfile() {

@@ -44,6 +44,9 @@ class GroupViewController: UIViewController {
     
     @objc func inviteUsers() {
         
+        let userViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "inviteUserTableView") as! InviteUsersTableViewController
+        userViewController.group = group
+        navigationController?.pushViewController(userViewController, animated: true)
     }
     
     //MARK: - Helpers

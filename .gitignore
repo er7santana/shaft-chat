@@ -8,7 +8,7 @@ DerivedData/
 
 *.DS_Store
 
-*GoogleService-Info.plist
+GoogleService-Info.plist
 
 ## Various settings
 *.pbxuser

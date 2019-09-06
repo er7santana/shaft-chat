@@ -116,6 +116,10 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "Back"), style: .plain, target: self, action: #selector(self.backAction))]
         
+        if isGroup! {
+            getCurrentGroup(withId: chatRoomId)
+        }
+        
         collectionView?.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView?.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
 
@@ -124,25 +128,10 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         jsqAvatarDictionary = [ : ]
         
-        
         setCustomTitle()
-        
         
         loadMessages()
 
-        
-//                // fix for iPhone X
-//        
-//                let constraint = perform(Selector(("toolbarBottomLayoutGuide")))?.takeUnretainedValue() as! NSLayoutConstraint
-//        
-//                constraint.priority = UILayoutPriority(rawValue: 999)
-//        
-//                self.inputToolbar.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-//        
-//                // end of fix For iPhone X
-//        
-//        
-        
         //custom send button
         self.inputToolbar.contentView.rightBarButtonItem.setImage(UIImage(named: "mic"), for: .normal)
         self.inputToolbar.contentView.rightBarButtonItem.setTitle("", for: .normal)
@@ -944,6 +933,19 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         avatarButton.addTarget(self, action: #selector(self.showUserProfile), for: .touchUpInside)
     }
     
+    func setUIForGroupChat() {
+        
+        imageFromData(pictureData: group![kAVATAR] as! String) { (avatarImage) in
+            
+            if avatarImage != nil {
+                avatarButton.setImage(avatarImage!.circleMasked, for: .normal)
+            }
+        }
+        
+        titleLabel.text = titleName
+        subtitleLabel.text = ""
+    }
+    
     
     //MARK: - UIImagePickerController Delegate
     
@@ -1092,6 +1094,25 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         if updatedChatListener != nil {
             updatedChatListener!.remove()
+        }
+    }
+    
+    func getCurrentGroup(withId: String) {
+        
+        reference(.Group).document(withId).getDocument { (snapshot, error) in
+            
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            guard let snapshot = snapshot else { return }
+            
+            if snapshot.exists {
+                
+                self.group = snapshot.data() as! NSDictionary
+                self.setUIForGroupChat()
+            }
         }
     }
     

@@ -22,4 +22,14 @@ target 'ShaftChat' do
   pod 'ImagePicker'
   pod 'RNCryptor'
 
+  pod 'OneSignal', '>= 2.6.2', '< 3.0'
+
+
+
 end
+
+target 'OneSignalNotificationServiceExtension' do
+  use_frameworks!
+  pod 'OneSignal', '>= 2.6.2', '< 3.0'
+end
+

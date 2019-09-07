@@ -19,6 +19,7 @@
 		13C83845231F572D0072666E /* BackgroundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83844231F572D0072666E /* BackgroundCollectionViewCell.swift */; };
 		13C83847231F5C6F0072666E /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83846231F5C6F0072666E /* TermsAndConditionsViewController.swift */; };
 		13C83849231F5EC30072666E /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83848231F5EC30072666E /* EditProfileTableViewController.swift */; };
+		13D142D523231DD600B25E4C /* Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D142D423231DD600B25E4C /* Encryption.swift */; };
 		13E8B5D72321C3D400327D80 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8B5D62321C3D400327D80 /* Group.swift */; };
 		13E8B5D92321DA2D00327D80 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8B5D82321DA2D00327D80 /* GroupViewController.swift */; };
 		13E8B5DB2321E08200327D80 /* InviteUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E8B5DA2321E08200327D80 /* InviteUsersTableViewController.swift */; };
@@ -66,6 +67,7 @@
 		13C83844231F572D0072666E /* BackgroundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewCell.swift; sourceTree = "<group>"; };
 		13C83846231F5C6F0072666E /* TermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewController.swift; sourceTree = "<group>"; };
 		13C83848231F5EC30072666E /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
+		13D142D423231DD600B25E4C /* Encryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encryption.swift; sourceTree = "<group>"; };
 		13E8B5D62321C3D400327D80 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		13E8B5D82321DA2D00327D80 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		13E8B5DA2321E08200327D80 /* InviteUsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteUsersTableViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				845200F6230CE85300699EE4 /* DownloadManager.swift */,
 				1306250323207EE9007031D6 /* CountryCode.swift */,
 				13E8B5D62321C3D400327D80 /* Group.swift */,
+				13D142D423231DD600B25E4C /* Encryption.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				84D747FD23022D52004AEA88 /* UsersTableViewController.swift in Sources */,
 				8409E10E23097D92009E1086 /* ChatViewController.swift in Sources */,
 				847068BE22F61B4200DCB6BA /* HelperFunctions.swift in Sources */,
+				13D142D523231DD600B25E4C /* Encryption.swift in Sources */,
 				84695ED5231779E8000408E4 /* VideoMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

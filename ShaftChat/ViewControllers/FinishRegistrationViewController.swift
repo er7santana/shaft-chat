@@ -8,9 +8,9 @@
 
 import UIKit
 import ProgressHUD
+import ImagePicker
 
-class FinishRegistrationViewController: UIViewController {
-
+class FinishRegistrationViewController: UIViewController, ImagePickerDelegate {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var surnameTextField: UITextField!
@@ -19,15 +19,29 @@ class FinishRegistrationViewController: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var avatarImageView: UIImageView!
     
+    @IBOutlet var AvatarTapGesture: UITapGestureRecognizer!
+    
     var email: String!
     var password: String!
     var avatarImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        avatarImageView.isUserInteractionEnabled = true
+        avatarImageView.addGestureRecognizer(AvatarTapGesture)
     }
     
     //MARK: - Actions
+    
+    @IBAction func avatarImageTap(_ sender: Any) {
+        let imagePickerController = ImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.imageLimit = 1
+        
+        present(imagePickerController, animated: true, completion: nil)
+        dismissKeyboard()
+    }
     
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         clearTextFields()
@@ -90,16 +104,16 @@ class FinishRegistrationViewController: UIViewController {
             
             imageFromInitials(firstName: name, lastName: surname) {
                 (avatarInitials) in
-                let avatarIMG = avatarInitials.jpegData(compressionQuality: 0.7)
+                let avatarIMG = avatarInitials.jpegData(compressionQuality: 0.5)
                 avatar = avatarIMG!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
             }
         } else {
-            let avatarData = avatarImage!.jpegData(compressionQuality: 0.7)
+            let avatarData = avatarImage!.jpegData(compressionQuality: 0.2)
             avatar = avatarData!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         }
         
         tempDictionary[kAVATAR] = avatar
-        
+        print(tempDictionary)
         self.finishRegistration(withValues: tempDictionary)
         
     }
@@ -131,4 +145,26 @@ class FinishRegistrationViewController: UIViewController {
         
         self.present(mainController, animated: true, completion: nil)
     }
+    
+    //MARK: ImagePickerDelegate
+    
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        
+        if images.count > 0 {
+            avatarImage = images.first!
+            avatarImageView.image = avatarImage?.circleMasked
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+
 }

@@ -278,10 +278,14 @@
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="Sgi-GR-UOs">
                                 <rect key="frame" x="137.66666666666666" y="129" width="100" height="100"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="9SF-QD-Jex"/>
                                     <constraint firstAttribute="width" constant="100" id="Mqi-Ra-I63"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="t2q-oA-ny6" appends="YES" id="gRJ-RE-Im6"/>
+                                </connections>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AhG-lQ-ar3">
                                 <rect key="frame" x="16" y="239" width="343" height="30"/>
@@ -340,6 +344,7 @@
                         <viewLayoutGuide key="safeArea" id="kjP-of-otu"/>
                     </view>
                     <connections>
+                        <outlet property="AvatarTapGesture" destination="t2q-oA-ny6" id="q3x-HX-iw1"/>
                         <outlet property="avatarImageView" destination="Sgi-GR-UOs" id="E3j-hd-LQ6"/>
                         <outlet property="cityTextField" destination="ppz-mG-ZXP" id="7Zv-Fv-Vss"/>
                         <outlet property="countryTextField" destination="K2c-4k-KQv" id="Y0X-oT-zZM"/>
@@ -349,6 +354,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCo-3l-35b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="t2q-oA-ny6" userLabel="AvatarTap">
+                    <connections>
+                        <action selector="avatarImageTap:" destination="yLt-V8-FTl" id="1uS-nB-2CW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1314" y="100"/>
         </scene>

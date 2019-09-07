@@ -180,7 +180,7 @@ class ContactsTableViewController: UITableViewController, UISearchResultsUpdatin
         
         if !isGroup {
             // private chat
-            if checkBlockedStatus(withUser: userToChat) {
+            if !checkBlockedStatus(withUser: userToChat) {
                 let chatViewController = ChatViewController()
                 chatViewController.titleName = userToChat.firstname
                 chatViewController.memberIds = [FUser.currentId(), userToChat.objectId]

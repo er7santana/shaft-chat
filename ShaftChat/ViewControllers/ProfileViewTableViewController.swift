@@ -30,6 +30,11 @@ class ProfileViewTableViewController: UITableViewController {
     
     @IBAction func callButtonPressed(_ sender: Any) {
         
+        //call user
+        
+        let currentUser = FUser.currentUser()!
+        let call = Call(_callerId: currentUser.objectId, _withUserId: user!.objectId, _callerFullName: currentUser.fullname, _withUserFullName: user!.fullname)
+        call.saveCallInBackground()
     }
     
     @IBAction func messageButtonPressed(_ sender: Any) {

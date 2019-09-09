@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1306250223207717007031D6 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1306250123207717007031D6 /* ContactsTableViewController.swift */; };
 		1306250423207EE9007031D6 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1306250323207EE9007031D6 /* CountryCode.swift */; };
+		1314D0BC2327044D0037EAD3 /* CallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1314D0BB2327044D0037EAD3 /* CallTableViewCell.swift */; };
+		1314D0BE232705660037EAD3 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1314D0BD232705660037EAD3 /* Call.swift */; };
+		1314D0C023270CBB0037EAD3 /* CallTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1314D0BF23270CBB0037EAD3 /* CallTableViewController.swift */; };
 		132C8905231DCDC0005D392C /* PicturesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C8904231DCDC0005D392C /* PicturesCollectionViewController.swift */; };
 		132C8907231DCE07005D392C /* PicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C8906231DCE07005D392C /* PicturesCollectionViewCell.swift */; };
 		1333B8D92320B6BE0017A3A6 /* GroupMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333B8D82320B6BE0017A3A6 /* GroupMemberCollectionViewCell.swift */; };
@@ -86,6 +89,9 @@
 		08A6F61652CC041FC31D8EBE /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1306250123207717007031D6 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		1306250323207EE9007031D6 /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
+		1314D0BB2327044D0037EAD3 /* CallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTableViewCell.swift; sourceTree = "<group>"; };
+		1314D0BD232705660037EAD3 /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
+		1314D0BF23270CBB0037EAD3 /* CallTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTableViewController.swift; sourceTree = "<group>"; };
 		132C8904231DCDC0005D392C /* PicturesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewController.swift; sourceTree = "<group>"; };
 		132C8906231DCE07005D392C /* PicturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewCell.swift; sourceTree = "<group>"; };
 		1333B8D82320B6BE0017A3A6 /* GroupMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -267,6 +273,7 @@
 				13E8B5D62321C3D400327D80 /* Group.swift */,
 				13D142D423231DD600B25E4C /* Encryption.swift */,
 				13F0B10B2323C2EA0083E7DB /* PushNotifications.swift */,
+				1314D0BD232705660037EAD3 /* Call.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -279,6 +286,7 @@
 				13C83844231F572D0072666E /* BackgroundCollectionViewCell.swift */,
 				84C7163B23065B8200BE5C52 /* RecentChatsTableViewCell.swift */,
 				1333B8D82320B6BE0017A3A6 /* GroupMemberCollectionViewCell.swift */,
+				1314D0BB2327044D0037EAD3 /* CallTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -305,6 +313,7 @@
 				8409E10D23097D92009E1086 /* ChatViewController.swift */,
 				843DAD5B230AD81F000BA321 /* RegisterViewController.swift */,
 				84695ED623178909000408E4 /* AudioViewController.swift */,
+				1314D0BF23270CBB0037EAD3 /* CallTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -518,6 +527,7 @@
 				84C5FB042318A394001F840A /* MapViewController.swift in Sources */,
 				13C83849231F5EC30072666E /* EditProfileTableViewController.swift in Sources */,
 				132C8907231DCE07005D392C /* PicturesCollectionViewCell.swift in Sources */,
+				1314D0BC2327044D0037EAD3 /* CallTableViewCell.swift in Sources */,
 				84B92A7722F5EE5B0043B283 /* LoginViewController.swift in Sources */,
 				847068BB22F6197900DCB6BA /* FCollectionReference.swift in Sources */,
 				843DAD5C230AD81F000BA321 /* RegisterViewController.swift in Sources */,
@@ -527,12 +537,14 @@
 				845200F9230CF78000699EE4 /* PhotoMediaItem.swift in Sources */,
 				13C83841231F41F60072666E /* BlockedUsersViewController.swift in Sources */,
 				847068C322F6B6F000DCB6BA /* SettingsTableViewController.swift in Sources */,
+				1314D0C023270CBB0037EAD3 /* CallTableViewController.swift in Sources */,
 				845200F5230CD6C500699EE4 /* Camera.swift in Sources */,
 				84D747FF230264A7004AEA88 /* ChatsViewController.swift in Sources */,
 				847068B922F615AA00DCB6BA /* Constants.swift in Sources */,
 				847068C122F68A9700DCB6BA /* FinishRegistrationViewController.swift in Sources */,
 				13E8B5D92321DA2D00327D80 /* GroupViewController.swift in Sources */,
 				84695ED723178909000408E4 /* AudioViewController.swift in Sources */,
+				1314D0BE232705660037EAD3 /* Call.swift in Sources */,
 				84D747FD23022D52004AEA88 /* UsersTableViewController.swift in Sources */,
 				8409E10E23097D92009E1086 /* ChatViewController.swift in Sources */,
 				847068BE22F61B4200DCB6BA /* HelperFunctions.swift in Sources */,

@@ -13,8 +13,8 @@ import OneSignal
 import PushKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate, SINClientDelegate, SINCallClientDelegate, SINManagedPushDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate, SINClientDelegate, SINCallClientDelegate, SINManagedPushDelegate, PKPushRegistryDelegate {
+    
     var window: UIWindow?
     var authListener: AuthStateDidChangeListenerHandle?
     
@@ -91,6 +91,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         let mainController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainApplication") as! UITabBarController
         
         window?.rootViewController = mainController
+    }
+    
+    //MARK: PushNotification functions
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        push.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        let firebaseAuth = Auth.auth()
+        if firebaseAuth.canHandleNotification(userInfo) {
+            return
+        } else {
+            push.application(application, didReceiveRemoteNotification: userInfo)
+        }
     }
     
     //MARK: - Location Manager
@@ -225,5 +241,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             }
         }
     }
+    
+    //MARK: - SinchCallClientDelegate
+    func client(_ client: SINCallClient!, willReceiveIncomingCall call: SINCall!) {
+        print("will receive incoming call")
+    }
+    
+    func client(_ client: SINCallClient!, didReceiveIncomingCall call: SINCall!) {
+        print("did receive incoming call")
+        //present call view
+        var top = window?.rootViewController
+        while (top?.presentedViewController != nil) {
+            top = top?.presentedViewController
+        }
+        
+        //create call view controller from storyboard
+    }
+    
+    //MARK: SinchClientDelegate
+    
+    func clientDidStart(_ client: SINClient!) {
+        print("client did start")
+    }
+    
+    func clientDidStop(_ client: SINClient!) {
+        print("client did stop")
+    }
+    
+    func clientDidFail(_ client: SINClient!, error: Error!) {
+        print("client did fail: =>  \(error.localizedDescription)")
+    }
+    
+    func voipRegistration() {
+        
+        let voipRegistry: PKPushRegistry = PKPushRegistry(queue: DispatchQueue.main)
+        voipRegistry.delegate = self
+        voipRegistry.desiredPushTypes = [PKPushType.voIP]
+    }
+    
 }
 

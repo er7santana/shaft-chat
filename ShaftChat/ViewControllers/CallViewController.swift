@@ -20,7 +20,7 @@ class CallViewController: UIViewController, SINCallDelegate {
     @IBOutlet weak var declineButton: UIButton!
     
     var speaker = false
-    var mute = false
+    var muted = false
     var durationTimer: Timer! = nil
     var _call: SINCall!
     var callAnswered = false
@@ -51,7 +51,7 @@ class CallViewController: UIViewController, SINCallDelegate {
         _call.delegate = self
         if _call.direction == .incoming {
             showButtons()
-            
+            audioController().startPlayingSoundFile(pathForSound(soundName: "incoming"), loop: true)
         } else {
             callAnswered = true
             setCallStatus(text: "Calling...")
@@ -59,21 +59,56 @@ class CallViewController: UIViewController, SINCallDelegate {
         }
     }
     
+    func audioController() -> SINAudioController {
+        return appDelegate._client.audioController()
+    }
+    
+    func setCall(call: SINCall) {
+        _call = call
+        _call.delegate = self
+    }
+    
     //MARK: - IBActions
     
     @IBAction func muteButtonPressed(_ sender: Any) {
+        if muted {
+            muted = false
+            audioController().unmute()
+            muteButton.setImage(UIImage(named: "mute"), for: .normal)
+        } else {
+            muted = true
+            audioController().mute()
+            muteButton.setImage(UIImage(named: "muteSelected"), for: .normal)
+        }
     }
     
     @IBAction func speakerButtonPressed(_ sender: Any) {
+        if speaker {
+            speaker = false
+            audioController().disableSpeaker()
+            speakerButton.setImage(UIImage(named: "speaker"), for: .normal)
+        } else {
+            speaker = true
+            audioController().enableSpeaker()
+            speakerButton.setImage(UIImage(named: "speakerSelected"), for: .normal)
+        }
     }
     
     @IBAction func answerButtonPressed(_ sender: Any) {
+        callAnswered = true
+        showButtons()
+        audioController().stopPlayingSoundFile()
+        _call.answer()
     }
     
     @IBAction func endCallButtonPressed(_ sender: Any) {
+        _call.hangup()
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func declineButtonPressed(_ sender: Any) {
+        _call.hangup()
+        dismiss(animated: true, completion: nil)
     }
     
     //MARK: - Update UI
@@ -96,5 +131,11 @@ class CallViewController: UIViewController, SINCallDelegate {
             muteButton.isHidden = true
             speakerButton.isHidden = true
         }
+    }
+    
+    //MARK: - Helpers
+    
+    func pathForSound(soundName: String) -> String {
+        return Bundle.main.path(forResource: soundName, ofType: "wav")!
     }
 }

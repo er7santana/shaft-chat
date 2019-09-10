@@ -10,6 +10,8 @@
 		1306250223207717007031D6 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1306250123207717007031D6 /* ContactsTableViewController.swift */; };
 		1306250423207EE9007031D6 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1306250323207EE9007031D6 /* CountryCode.swift */; };
 		130632E7232858E200472982 /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130632E6232858E200472982 /* CallViewController.swift */; };
+		130632EA23285EDA00472982 /* ringback.wav in Resources */ = {isa = PBXBuildFile; fileRef = 130632E823285EDA00472982 /* ringback.wav */; };
+		130632EB23285EDA00472982 /* incoming.wav in Resources */ = {isa = PBXBuildFile; fileRef = 130632E923285EDA00472982 /* incoming.wav */; };
 		1314D0BC2327044D0037EAD3 /* CallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1314D0BB2327044D0037EAD3 /* CallTableViewCell.swift */; };
 		1314D0BE232705660037EAD3 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1314D0BD232705660037EAD3 /* Call.swift */; };
 		1314D0C023270CBB0037EAD3 /* CallTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1314D0BF23270CBB0037EAD3 /* CallTableViewController.swift */; };
@@ -92,6 +94,8 @@
 		1306250123207717007031D6 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		1306250323207EE9007031D6 /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		130632E6232858E200472982 /* CallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
+		130632E823285EDA00472982 /* ringback.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ringback.wav; sourceTree = "<group>"; };
+		130632E923285EDA00472982 /* incoming.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = incoming.wav; sourceTree = "<group>"; };
 		1314D0BB2327044D0037EAD3 /* CallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTableViewCell.swift; sourceTree = "<group>"; };
 		1314D0BD232705660037EAD3 /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
 		1314D0BF23270CBB0037EAD3 /* CallTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTableViewController.swift; sourceTree = "<group>"; };
@@ -262,6 +266,8 @@
 				84B92A8022F5EE5E0043B283 /* Info.plist */,
 				847068B422F611E600DCB6BA /* GoogleService-Info.plist */,
 				134AD5E12327468C009CC894 /* ShaftChat-Bridging-Header.h */,
+				130632E923285EDA00472982 /* incoming.wav */,
+				130632E823285EDA00472982 /* ringback.wav */,
 			);
 			path = ShaftChat;
 			sourceTree = "<group>";
@@ -432,7 +438,9 @@
 			files = (
 				84B92A7F22F5EE5E0043B283 /* LaunchScreen.storyboard in Resources */,
 				847068B522F611E600DCB6BA /* GoogleService-Info.plist in Resources */,
+				130632EA23285EDA00472982 /* ringback.wav in Resources */,
 				84B92A7C22F5EE5E0043B283 /* Assets.xcassets in Resources */,
+				130632EB23285EDA00472982 /* incoming.wav in Resources */,
 				84B92A7A22F5EE5B0043B283 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

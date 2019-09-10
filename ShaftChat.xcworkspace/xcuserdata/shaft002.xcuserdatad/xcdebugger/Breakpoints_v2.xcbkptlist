@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShaftChat/ViewControllers/ProfileViewTableViewController.swift"
-            timestampString = "589765144.577731"
+            timestampString = "589851477.545415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "callButtonPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>

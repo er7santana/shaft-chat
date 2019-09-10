@@ -111,7 +111,50 @@ class CallViewController: UIViewController, SINCallDelegate {
         dismiss(animated: true, completion: nil)
     }
     
+    //MARK: - SINCallDelegate
+    func callDidProgress(_ call: SINCall!) {
+        setCallStatus(text: "Ringing...")
+        audioController().startPlayingSoundFile(pathForSound(soundName: "ringback"), loop: true)
+    }
+    
+    func callDidEstablish(_ call: SINCall!) {
+        startCallDurationTimer()
+        showButtons()
+        audioController().stopPlayingSoundFile()
+    }
+    
+    func callDidEnd(_ call: SINCall!) {
+        audioController().stopPlayingSoundFile()
+        stopCallDurationTimer()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: - Timer
+    
+    @objc func onDuration() {
+        let duration = Date().timeIntervalSince(_call.details.establishedTime)
+        updateTimerLabel(seconds: Int(duration))
+    }
+    
+    func startCallDurationTimer() {
+        durationTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.onDuration), userInfo: nil, repeats: true)
+    }
+    
+    func stopCallDurationTimer() {
+        if durationTimer != nil {
+            durationTimer.invalidate()
+            durationTimer = nil
+        }
+    }
+    
     //MARK: - Update UI
+    
+    func updateTimerLabel(seconds: Int) {
+        let minutes = String(format: "%02d", (seconds / 60))
+        let sec = String(format: "%02d", (seconds / 60))
+        
+        setCallStatus(text: "\(minutes) : \(sec)")
+    }
     
     func setCallStatus(text: String) {
         statusLabel.text = text

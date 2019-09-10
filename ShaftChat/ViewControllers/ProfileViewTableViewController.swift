@@ -18,6 +18,8 @@ class ProfileViewTableViewController: UITableViewController {
     @IBOutlet weak var messageButtonOutlet: UIButton!
     @IBOutlet weak var blockUserOutlet: UIButton!
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     var user: FUser?
     
     override func viewDidLoad() {
@@ -30,7 +32,7 @@ class ProfileViewTableViewController: UITableViewController {
     
     @IBAction func callButtonPressed(_ sender: Any) {
         
-        //call user
+        callUser()
         
         let currentUser = FUser.currentUser()!
         let call = Call(_callerId: currentUser.objectId, _withUserId: user!.objectId, _callerFullName: currentUser.fullname, _withUserFullName: user!.fullname)
@@ -149,5 +151,20 @@ class ProfileViewTableViewController: UITableViewController {
             blockUserOutlet.setTitleColor(UIColor.red, for: .normal)
         }
         
+    }
+    
+    //MARK: - Call User
+    
+    func callClient() -> SINCallClient {
+        return appDelegate._client.call()
+    }
+    
+    func callUser() {
+        let userToCall = user!.objectId
+        let call = callClient().callUser(withId: userToCall)
+        
+        let callViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "callView") as! CallViewController
+        callViewController._call = call
+        present(callViewController, animated: true, completion: nil)
     }
 }

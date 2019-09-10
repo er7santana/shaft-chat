@@ -10,15 +10,19 @@ import UIKit
 import Firebase
 import CoreLocation
 import OneSignal
+import PushKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate, SINClientDelegate, SINCallClientDelegate, SINManagedPushDelegate {
 
     var window: UIWindow?
     var authListener: AuthStateDidChangeListenerHandle?
     
     var locationManager: CLLocationManager?
     var coordinates: CLLocationCoordinate2D?
+    
+    var _client: SINClient!
+    var push: SINManagedPush!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -159,6 +163,67 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         //update one signal ID
         updateOneSignalId()
+    }
+    
+    //MARK: Sinch
+    
+    func initSinchWithUserId(userId: String) {
+        if _client == nil {
+            _client = Sinch.client(withApplicationKey: kSINCHKEY, applicationSecret: kSINCHSECRET, environmentHost: "sandbox.sinch.com", userId: userId)
+            _client.delegate = self
+            _client.call()?.delegate = self
+            _client.setSupportCalling(true)
+            _client.enableManagedPushNotifications()
+            _client.start()
+            _client.startListeningOnActiveConnection()
+            
+        }
+    }
+    
+    //MARK: - SinchManagedPushDelegate
+    
+    func managedPush(_ managedPush: SINManagedPush!, didReceiveIncomingPushWithPayload payload: [AnyHashable : Any]!, forType pushType: String!) {
+        let result = SINPushHelper.queryPushNotificationPayload(payload)
+        if result!.isCall() {
+            print(" incoming push payload")
+            handleRemoteNotification(userInfo: payload as NSDictionary)
+        }
+    }
+    
+    func handleRemoteNotification(userInfo: NSDictionary) {
+        if _client == nil {
+            let userId = userDefaults.object(forKey: kUSERID)
+            if userId != nil {
+                initSinchWithUserId(userId: userId as! String)
+            }
+        }
+        
+        let result = _client.relayRemotePushNotification(userInfo as! [AnyHashable : Any])
+        if result!.isCall() {
+            print(" handle call notification")
+        }
+        
+        if result!.isCall() && result!.call()!.isCallCanceled {
+            missedCallNotificationWithRemoteUserId(userId: result!.call()!.callId)
+        }
+    }
+    
+    func missedCallNotificationWithRemoteUserId(userId: String) {
+        if UIApplication.shared.applicationState == .background {
+            let center = UNUserNotificationCenter.current()
+            let content = UNMutableNotificationContent()
+            content.title = "Missed Call"
+            content.body = "From \(userId)"
+            content.sound = UNNotificationSound.default
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+            let request = UNNotificationRequest(identifier: "ContentIdentifier", content: content, trigger: trigger)
+            
+            center.add(request) { (error) in
+                if error != nil {
+                    print("Error presenting notification: => \(error?.localizedDescription)")
+                }
+            }
+        }
     }
 }
 

@@ -216,6 +216,8 @@
 		</dict>
 		<key>SinchRTC.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>36</integer>
 		</dict>

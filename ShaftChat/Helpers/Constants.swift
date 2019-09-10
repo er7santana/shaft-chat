@@ -22,8 +22,8 @@ public let APP_STARTED_NOTIFICATION = "AppStartedNotification"
 //IDS and Keys
 public let kFILEREFERENCE = "gs://shaftchat.appspot.com/"
 public let kONESIGNALAPPID = "b6bf47bf-5576-4898-ae7c-0c005bcf9689"
-public let kSINCHKEY = ""
-public let kSINCHSECRET = ""
+public let kSINCHKEY = "ecaad6a3-49f3-4045-aa51-4684c662993d"
+public let kSINCHSECRET = "EGcmTEZTAEy6wI8N+KSUKQ=="
 public let kAPPURL = "App link"
 
 

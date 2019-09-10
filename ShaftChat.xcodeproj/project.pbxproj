@@ -16,6 +16,7 @@
 		132C8907231DCE07005D392C /* PicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132C8906231DCE07005D392C /* PicturesCollectionViewCell.swift */; };
 		1333B8D92320B6BE0017A3A6 /* GroupMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333B8D82320B6BE0017A3A6 /* GroupMemberCollectionViewCell.swift */; };
 		1333B8DB2320B8F20017A3A6 /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333B8DA2320B8F20017A3A6 /* NewGroupViewController.swift */; };
+		134AD5E623274766009CC894 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 134AD5E523274766009CC894 /* PushKit.framework */; };
 		13B02B3423209D15007F9463 /* JSQMessagesInputToolBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B02B3323209D15007F9463 /* JSQMessagesInputToolBarExtension.swift */; };
 		13C83841231F41F60072666E /* BlockedUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83840231F41F60072666E /* BlockedUsersViewController.swift */; };
 		13C83843231F570D0072666E /* BackgroundCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83842231F570D0072666E /* BackgroundCollectionViewController.swift */; };
@@ -96,6 +97,8 @@
 		132C8906231DCE07005D392C /* PicturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewCell.swift; sourceTree = "<group>"; };
 		1333B8D82320B6BE0017A3A6 /* GroupMemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		1333B8DA2320B8F20017A3A6 /* NewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
+		134AD5E12327468C009CC894 /* ShaftChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShaftChat-Bridging-Header.h"; sourceTree = "<group>"; };
+		134AD5E523274766009CC894 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		13B02B3323209D15007F9463 /* JSQMessagesInputToolBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQMessagesInputToolBarExtension.swift; sourceTree = "<group>"; };
 		13C83840231F41F60072666E /* BlockedUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUsersViewController.swift; sourceTree = "<group>"; };
 		13C83842231F570D0072666E /* BackgroundCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				134AD5E623274766009CC894 /* PushKit.framework in Frameworks */,
 				DF686270D82318163DD60B1D /* Pods_ShaftChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,6 +194,7 @@
 		1F360530B4A4302ED3F40365 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				134AD5E523274766009CC894 /* PushKit.framework */,
 				892D2A9A729F73808FA0E154 /* Pods_ShaftChat.framework */,
 				13F0B1122323C9840083E7DB /* UserNotifications.framework */,
 				13F0B1142323C9840083E7DB /* UserNotificationsUI.framework */,
@@ -254,6 +259,7 @@
 				84B92A7D22F5EE5E0043B283 /* LaunchScreen.storyboard */,
 				84B92A8022F5EE5E0043B283 /* Info.plist */,
 				847068B422F611E600DCB6BA /* GoogleService-Info.plist */,
+				134AD5E12327468C009CC894 /* ShaftChat-Bridging-Header.h */,
 			);
 			path = ShaftChat;
 			sourceTree = "<group>";
@@ -375,6 +381,7 @@
 					};
 					84B92A7022F5EE5B0043B283 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1030;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -747,6 +754,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ShaftChat/ShaftChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E8VNZ48Y42;
@@ -757,6 +765,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shaft7.shaftchat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ShaftChat/ShaftChat-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -768,6 +778,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ShaftChat/ShaftChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E8VNZ48Y42;
@@ -778,6 +789,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shaft7.shaftchat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ShaftChat/ShaftChat-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

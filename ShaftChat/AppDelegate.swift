@@ -46,6 +46,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             }
         })
         
+        voipRegistration()
+        push = Sinch.managedPush(with: .development)
+        push.delegate = self
+        push.setDesiredPushTypeAutomatically()
+        
         func userDidLogin(userId: String) {
             push.registerUserNotificationSettings()
             initSinchWithUserId(userId: userId)

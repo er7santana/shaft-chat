@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShaftChat/AppDelegate.swift"
-            timestampString = "589560335.8129849"
+            timestampString = "589779595.29354"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "userDidLogin(userId:)"
-            landmarkType = "9">
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

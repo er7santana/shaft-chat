@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1306250223207717007031D6 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1306250123207717007031D6 /* ContactsTableViewController.swift */; };
 		1306250423207EE9007031D6 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1306250323207EE9007031D6 /* CountryCode.swift */; };
+		130632E7232858E200472982 /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130632E6232858E200472982 /* CallViewController.swift */; };
 		1314D0BC2327044D0037EAD3 /* CallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1314D0BB2327044D0037EAD3 /* CallTableViewCell.swift */; };
 		1314D0BE232705660037EAD3 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1314D0BD232705660037EAD3 /* Call.swift */; };
 		1314D0C023270CBB0037EAD3 /* CallTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1314D0BF23270CBB0037EAD3 /* CallTableViewController.swift */; };
@@ -90,6 +91,7 @@
 		08A6F61652CC041FC31D8EBE /* Pods_OneSignalNotificationServiceExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OneSignalNotificationServiceExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1306250123207717007031D6 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		1306250323207EE9007031D6 /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
+		130632E6232858E200472982 /* CallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
 		1314D0BB2327044D0037EAD3 /* CallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTableViewCell.swift; sourceTree = "<group>"; };
 		1314D0BD232705660037EAD3 /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
 		1314D0BF23270CBB0037EAD3 /* CallTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTableViewController.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				843DAD5B230AD81F000BA321 /* RegisterViewController.swift */,
 				84695ED623178909000408E4 /* AudioViewController.swift */,
 				1314D0BF23270CBB0037EAD3 /* CallTableViewController.swift */,
+				130632E6232858E200472982 /* CallViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				84C7163C23065B8200BE5C52 /* RecentChatsTableViewCell.swift in Sources */,
 				13F0B10C2323C2EA0083E7DB /* PushNotifications.swift in Sources */,
 				8409E110230A0A70009E1086 /* OutgoingMessage.swift in Sources */,
+				130632E7232858E200472982 /* CallViewController.swift in Sources */,
 				1333B8D92320B6BE0017A3A6 /* GroupMemberCollectionViewCell.swift in Sources */,
 				13C83843231F570D0072666E /* BackgroundCollectionViewController.swift in Sources */,
 				847068B722F6154400DCB6BA /* FUser.swift in Sources */,

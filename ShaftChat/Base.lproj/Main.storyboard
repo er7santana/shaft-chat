@@ -1432,10 +1432,10 @@
             </objects>
             <point key="canvasLocation" x="7060" y="1097"/>
         </scene>
-        <!--View Controller-->
+        <!--Call View Controller-->
         <scene sceneID="xxg-m3-8vP">
             <objects>
-                <viewController id="eBc-al-cOJ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="callView" id="eBc-al-cOJ" customClass="CallViewController" customModule="ShaftChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AUB-Wa-xAM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1472,6 +1472,9 @@
                                     <constraint firstAttribute="height" constant="88" id="u0J-NK-IAI"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="speaker"/>
+                                <connections>
+                                    <action selector="speakerButtonPressed:" destination="eBc-al-cOJ" eventType="touchUpInside" id="iqR-La-6sb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rB-vG-A49">
                                 <rect key="frame" x="16" y="670" width="88" height="88"/>
@@ -1480,6 +1483,9 @@
                                     <constraint firstAttribute="width" constant="88" id="TC2-jh-XEK"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="answer"/>
+                                <connections>
+                                    <action selector="answerButtonPressed:" destination="eBc-al-cOJ" eventType="touchUpInside" id="0Lp-jy-m9e"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3G1-P1-Dk1">
                                 <rect key="frame" x="143.66666666666666" y="670" width="88" height="88"/>
@@ -1488,6 +1494,9 @@
                                     <constraint firstAttribute="width" constant="88" id="sRs-mq-zOO"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="hangup"/>
+                                <connections>
+                                    <action selector="endCallButtonPressed:" destination="eBc-al-cOJ" eventType="touchUpInside" id="6ic-CB-tCT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXa-cM-YMF">
                                 <rect key="frame" x="271" y="670" width="88" height="88"/>
@@ -1496,6 +1505,9 @@
                                     <constraint firstAttribute="width" constant="88" id="Scx-Zg-gfH"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="hangup"/>
+                                <connections>
+                                    <action selector="declineButtonPressed:" destination="eBc-al-cOJ" eventType="touchUpInside" id="yZe-6K-eQq"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBC-QU-AZR">
                                 <rect key="frame" x="150" y="371" width="75" height="80"/>
@@ -1512,6 +1524,9 @@
                                     <constraint firstAttribute="width" constant="88" id="dBF-uu-7Ng"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="mute"/>
+                                <connections>
+                                    <action selector="muteButtonPressed:" destination="eBc-al-cOJ" eventType="touchUpInside" id="6sd-Y0-pMa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1539,6 +1554,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wi8-wb-IXi"/>
                     </view>
+                    <connections>
+                        <outlet property="answerButton" destination="4rB-vG-A49" id="jAb-g8-vkD"/>
+                        <outlet property="avatarImageView" destination="wWa-jC-fAO" id="nPJ-TD-SQC"/>
+                        <outlet property="declineButton" destination="RXa-cM-YMF" id="pWF-JG-RnV"/>
+                        <outlet property="endCallButton" destination="3G1-P1-Dk1" id="EUj-ga-2Nf"/>
+                        <outlet property="muteButton" destination="hXG-gz-0bj" id="7aN-gk-Uws"/>
+                        <outlet property="speakerButton" destination="4d8-mG-pkd" id="KdG-gX-auW"/>
+                        <outlet property="statusLabel" destination="9q2-wL-Zsx" id="4xx-MC-kCL"/>
+                        <outlet property="userNameLabel" destination="aij-bn-IeM" id="meQ-hx-ybx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BS9-uX-8OH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -6,32 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ShaftChat/AppDelegate.swift"
-            timestampString = "589779595.29354"
+            filePath = "ShaftChat/ViewControllers/CallViewController.swift"
+            timestampString = "589852543.07737"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShaftChat/ViewControllers/ProfileViewTableViewController.swift"
-            timestampString = "589851477.545415"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "callButtonPressed(_:)"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "callDidEstablish(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

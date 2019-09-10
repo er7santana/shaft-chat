@@ -151,7 +151,7 @@ class CallViewController: UIViewController, SINCallDelegate {
     
     func updateTimerLabel(seconds: Int) {
         let minutes = String(format: "%02d", (seconds / 60))
-        let sec = String(format: "%02d", (seconds / 60))
+        let sec = String(format: "%02d", (seconds % 60))
         
         setCallStatus(text: "\(minutes) : \(sec)")
     }

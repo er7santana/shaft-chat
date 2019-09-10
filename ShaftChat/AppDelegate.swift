@@ -262,7 +262,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             top = top?.presentedViewController
         }
         
-        //create call view controller from storyboard
+        let callViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "callView") as! CallViewController
+        callViewController._call = call
+        top?.present(callViewController, animated: true, completion: nil)
     }
     
     //MARK: SinchClientDelegate

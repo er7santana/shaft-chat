@@ -47,7 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         })
         
         func userDidLogin(userId: String) {
-            self.startOneSignal()
+            push.registerUserNotificationSettings()
+            initSinchWithUserId(userId: userId)
+            startOneSignal()
         }
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name(USER_DID_LOGIN_NOTIFICATION), object: nil, queue: nil) { (notification) in
@@ -278,6 +280,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         voipRegistry.delegate = self
         voipRegistry.desiredPushTypes = [PKPushType.voIP]
     }
+    
+    //MARK: - PKPushRegistryNotification
+    func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
+        
+    }
+    
     
 }
 

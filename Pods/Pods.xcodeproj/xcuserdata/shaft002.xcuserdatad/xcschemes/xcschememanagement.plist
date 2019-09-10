@@ -214,6 +214,11 @@
 			<key>orderHint</key>
 			<integer>35</integer>
 		</dict>
+		<key>SinchRTC.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>36</integer>
+		</dict>
 		<key>gRPC-C++-gRPCCertificates-Cpp.xcscheme</key>
 		<dict>
 			<key>isShown</key>

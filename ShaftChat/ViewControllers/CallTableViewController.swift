@@ -34,6 +34,8 @@ class CallTableViewController: UITableViewController, UISearchResultsUpdating {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setBadges(controller: tabBarController!)
+        
         tableView.tableFooterView = UIView()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.searchController = searchController

@@ -71,6 +71,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
+        var top = self.window?.rootViewController
+        while (top?.presentedViewController != nil) {
+            top = top?.presentedViewController
+        }
+        
+        if top! is UITabBarController {
+            setBadges(controller: top as! UITabBarController)
+        }
         
         if FUser.currentUser() != nil {
             updateCurrentUserInFirestore(withValues: [kISONLINE : true]) { (success) in
@@ -81,6 +89,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
+        
+        recentBadgeHandler?.remove()
         
         if FUser.currentUser() != nil {
             updateCurrentUserInFirestore(withValues: [kISONLINE : false]) { (success) in

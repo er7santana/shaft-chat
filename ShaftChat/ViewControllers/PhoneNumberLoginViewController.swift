@@ -87,7 +87,13 @@ class PhoneNumberLoginViewController: UIViewController {
     }
     
     func goToApp() {
+        ProgressHUD.dismiss()
         
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: USER_DID_LOGIN_NOTIFICATION), object: nil, userInfo: [kUSERID: FUser.currentId()])
+        
+        let mainController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainApplication") as! UITabBarController
+        
+        self.present(mainController, animated: true, completion: nil)
     }
     
 }

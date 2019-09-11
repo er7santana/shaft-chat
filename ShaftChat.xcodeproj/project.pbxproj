@@ -23,6 +23,8 @@
 		1386B3EF2328707E00BC7C89 /* Badges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386B3EE2328707E00BC7C89 /* Badges.swift */; };
 		1386B3F1232874E200BC7C89 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1386B3F0232874E200BC7C89 /* Localizable.strings */; };
 		1386B3F323287E1E00BC7C89 /* PhoneNumberLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386B3F223287E1E00BC7C89 /* PhoneNumberLoginViewController.swift */; };
+		1386B3F6232897DB00BC7C89 /* AudioControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386B3F4232897DB00BC7C89 /* AudioControllerDelegate.swift */; };
+		1386B3F7232897DB00BC7C89 /* SINCallKitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386B3F5232897DB00BC7C89 /* SINCallKitProvider.swift */; };
 		13B02B3423209D15007F9463 /* JSQMessagesInputToolBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B02B3323209D15007F9463 /* JSQMessagesInputToolBarExtension.swift */; };
 		13C83841231F41F60072666E /* BlockedUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83840231F41F60072666E /* BlockedUsersViewController.swift */; };
 		13C83843231F570D0072666E /* BackgroundCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83842231F570D0072666E /* BackgroundCollectionViewController.swift */; };
@@ -111,6 +113,8 @@
 		1386B3EE2328707E00BC7C89 /* Badges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badges.swift; sourceTree = "<group>"; };
 		1386B3F0232874E200BC7C89 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		1386B3F223287E1E00BC7C89 /* PhoneNumberLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberLoginViewController.swift; sourceTree = "<group>"; };
+		1386B3F4232897DB00BC7C89 /* AudioControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioControllerDelegate.swift; sourceTree = "<group>"; };
+		1386B3F5232897DB00BC7C89 /* SINCallKitProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SINCallKitProvider.swift; sourceTree = "<group>"; };
 		13B02B3323209D15007F9463 /* JSQMessagesInputToolBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQMessagesInputToolBarExtension.swift; sourceTree = "<group>"; };
 		13C83840231F41F60072666E /* BlockedUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUsersViewController.swift; sourceTree = "<group>"; };
 		13C83842231F570D0072666E /* BackgroundCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewController.swift; sourceTree = "<group>"; };
@@ -268,6 +272,8 @@
 				84B92A8722F5EE780043B283 /* CustomCells */,
 				84B92A8822F5EE8C0043B283 /* ViewControllers */,
 				84B92A7422F5EE5B0043B283 /* AppDelegate.swift */,
+				1386B3F4232897DB00BC7C89 /* AudioControllerDelegate.swift */,
+				1386B3F5232897DB00BC7C89 /* SINCallKitProvider.swift */,
 				84B92A7822F5EE5B0043B283 /* Main.storyboard */,
 				84B92A7B22F5EE5E0043B283 /* Assets.xcassets */,
 				84B92A7D22F5EE5E0043B283 /* LaunchScreen.storyboard */,
@@ -549,6 +555,7 @@
 				13C83845231F572D0072666E /* BackgroundCollectionViewCell.swift in Sources */,
 				13E8B5D72321C3D400327D80 /* Group.swift in Sources */,
 				13C83847231F5C6F0072666E /* TermsAndConditionsViewController.swift in Sources */,
+				1386B3F7232897DB00BC7C89 /* SINCallKitProvider.swift in Sources */,
 				842920822304F4AB005160CA /* ProfileViewTableViewController.swift in Sources */,
 				13B02B3423209D15007F9463 /* JSQMessagesInputToolBarExtension.swift in Sources */,
 				1333B8DB2320B8F20017A3A6 /* NewGroupViewController.swift in Sources */,
@@ -559,6 +566,7 @@
 				132C8907231DCE07005D392C /* PicturesCollectionViewCell.swift in Sources */,
 				1314D0BC2327044D0037EAD3 /* CallTableViewCell.swift in Sources */,
 				84B92A7722F5EE5B0043B283 /* LoginViewController.swift in Sources */,
+				1386B3F6232897DB00BC7C89 /* AudioControllerDelegate.swift in Sources */,
 				847068BB22F6197900DCB6BA /* FCollectionReference.swift in Sources */,
 				843DAD5C230AD81F000BA321 /* RegisterViewController.swift in Sources */,
 				132C8905231DCDC0005D392C /* PicturesCollectionViewController.swift in Sources */,

@@ -13,7 +13,7 @@ import OneSignal
 import PushKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate, SINClientDelegate, SINCallClientDelegate, SINManagedPushDelegate, PKPushRegistryDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate, SINClientDelegate, SINCallClientDelegate, SINManagedPushDelegate {
     
     var window: UIWindow?
     var authListener: AuthStateDidChangeListenerHandle?
@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     var _client: SINClient!
     var push: SINManagedPush!
+    var callKitProvider: SINCallKitProvider!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -46,7 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             }
         })
         
-        voipRegistration()
         push = Sinch.managedPush(with: .development)
         push.delegate = self
         push.setDesiredPushTypeAutomatically()
@@ -65,7 +65,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             userDidLogin(userId: userId)
         }
         
-        OneSignal.initWithLaunchOptions(launchOptions, appId: kONESIGNALAPPID)
+        
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound], completionHandler: { (granted, error) in
+            })
+            application.registerForRemoteNotifications()
+        } else {
+            let types: UIUserNotificationType = [.alert, .badge, .sound]
+            let settings = UIUserNotificationSettings(types: types, categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        
+        OneSignal.initWithLaunchOptions(launchOptions, appId: kONESIGNALAPPID, handleNotificationAction: nil, settings: [kOSSettingsKeyInAppAlerts : false])
         
         return true
     }
@@ -100,6 +111,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         locationManagerStop()
     }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        if callKitProvider != nil {
+            let call = callKitProvider.currentEstablishedCall()
+            
+            if call != nil {
+                var top = self.window?.rootViewController
+                
+                while (top?.presentedViewController != nil) {
+                    top = top?.presentedViewController
+                }
+                
+                
+                if !(top! is CallViewController) {
+                    let callVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "callView") as! CallViewController
+                    
+                    callVC._call = call
+                    
+                    top?.present(callVC, animated: true, completion: nil)
+                }
+            }
+        }
+        // If there is one established call, show the callView of the current call when the App is brought to foreground.
+        // This is mainly to handle the UI transition when clicking the App icon on the lockscreen CallKit UI.
+
+    }
 
     func goToApp(){
         
@@ -113,7 +150,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     //MARK: PushNotification functions
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        push.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
+        Auth.auth().setAPNSToken(deviceToken, type: AuthAPNSTokenType.sandbox)
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
@@ -122,7 +159,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         if firebaseAuth.canHandleNotification(userInfo) {
             return
         } else {
-            push.application(application, didReceiveRemoteNotification: userInfo)
+//            push.application(application, didReceiveRemoteNotification: userInfo)
         }
     }
     
@@ -210,16 +247,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             _client.start()
             _client.startListeningOnActiveConnection()
             
+            callKitProvider = SINCallKitProvider(withClient: _client)
         }
     }
     
     //MARK: - SinchManagedPushDelegate
     
     func managedPush(_ managedPush: SINManagedPush!, didReceiveIncomingPushWithPayload payload: [AnyHashable : Any]!, forType pushType: String!) {
-        let result = SINPushHelper.queryPushNotificationPayload(payload)
-        if result!.isCall() {
-            print(" incoming push payload")
-            handleRemoteNotification(userInfo: payload as NSDictionary)
+        
+        if pushType == "PKPushTypeVoIP" {
+            self.handleRemoteNotification(userInfo: payload as NSDictionary)
         }
     }
     
@@ -262,7 +299,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     //MARK: - SinchCallClientDelegate
     func client(_ client: SINCallClient!, willReceiveIncomingCall call: SINCall!) {
         print("will receive incoming call")
-    }
+        callKitProvider.reportNewIncomingCall(call: call)
+}
     
     func client(_ client: SINCallClient!, didReceiveIncomingCall call: SINCall!) {
         print("did receive incoming call")
@@ -290,19 +328,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func clientDidFail(_ client: SINClient!, error: Error!) {
         print("client did fail: =>  \(error.localizedDescription)")
     }
-    
-    func voipRegistration() {
-        
-        let voipRegistry: PKPushRegistry = PKPushRegistry(queue: DispatchQueue.main)
-        voipRegistry.delegate = self
-        voipRegistry.desiredPushTypes = [PKPushType.voIP]
-    }
-    
-    //MARK: - PKPushRegistryNotification
-    func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
-        
-    }
-    
     
 }
 

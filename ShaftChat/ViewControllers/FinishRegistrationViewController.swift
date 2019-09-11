@@ -66,17 +66,19 @@ class FinishRegistrationViewController: UIViewController, ImagePickerDelegate {
             return
         }
         
-        FUser.registerUserWith(email: email!, password: password!, firstName: name, lastName: surname) { (error) in
-            
-            if error != nil {
-                ProgressHUD.dismiss()
-                ProgressHUD.showError(error!.localizedDescription)
-                return
-            }
-            
-            self.registerUser(name: name, surname: surname, country: country, city: city, phone: phone)
-            
-        }
+//        FUser.registerUserWith(email: email!, password: password!, firstName: name, lastName: surname) { (error) in
+//
+//            if error != nil {
+//                ProgressHUD.dismiss()
+//                ProgressHUD.showError(error!.localizedDescription)
+//                return
+//            }
+//
+//            self.registerUser(name: name, surname: surname, country: country, city: city, phone: phone)
+//
+//        }
+        
+        self.registerUser()
     }
     
     //MARK: - Helper functions
@@ -91,6 +93,39 @@ class FinishRegistrationViewController: UIViewController, ImagePickerDelegate {
         countryTextField.text = ""
         cityTextField.text = ""
         phoneTextField.text = ""
+    }
+    
+    func registerUser() {
+        
+        let fullName = nameTextField.text! + " " + surnameTextField.text!
+        
+        var tempDictionary : Dictionary = [kFIRSTNAME : nameTextField.text!, kLASTNAME : surnameTextField.text!, kFULLNAME : fullName, kCOUNTRY : countryTextField.text!, kCITY : cityTextField.text!, kPHONE : phoneTextField.text!] as [String : Any]
+        
+        
+        if avatarImage == nil {
+            
+            imageFromInitials(firstName: nameTextField.text!, lastName: surnameTextField.text!) { (avatarInitials) in
+                
+                let avatarIMG = avatarInitials.jpegData(compressionQuality: 0.2)
+                let avatar = avatarIMG!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+                
+                tempDictionary[kAVATAR] = avatar
+                
+                self.finishRegistration(withValues: tempDictionary)
+            }
+            
+            
+            
+        } else {
+            
+            let avatarData = avatarImage?.jpegData(compressionQuality: 0.2)
+            let avatar = avatarData!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+            
+            tempDictionary[kAVATAR] = avatar
+            
+            self.finishRegistration(withValues: tempDictionary)
+        }
+        
     }
     
     func registerUser(name: String, surname: String, country: String, city: String, phone: String){

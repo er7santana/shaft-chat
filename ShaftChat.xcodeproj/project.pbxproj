@@ -20,6 +20,7 @@
 		1333B8D92320B6BE0017A3A6 /* GroupMemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333B8D82320B6BE0017A3A6 /* GroupMemberCollectionViewCell.swift */; };
 		1333B8DB2320B8F20017A3A6 /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333B8DA2320B8F20017A3A6 /* NewGroupViewController.swift */; };
 		134AD5E623274766009CC894 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 134AD5E523274766009CC894 /* PushKit.framework */; };
+		1386B3EF2328707E00BC7C89 /* Badges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386B3EE2328707E00BC7C89 /* Badges.swift */; };
 		13B02B3423209D15007F9463 /* JSQMessagesInputToolBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B02B3323209D15007F9463 /* JSQMessagesInputToolBarExtension.swift */; };
 		13C83841231F41F60072666E /* BlockedUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83840231F41F60072666E /* BlockedUsersViewController.swift */; };
 		13C83843231F570D0072666E /* BackgroundCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83842231F570D0072666E /* BackgroundCollectionViewController.swift */; };
@@ -105,6 +106,7 @@
 		1333B8DA2320B8F20017A3A6 /* NewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
 		134AD5E12327468C009CC894 /* ShaftChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShaftChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		134AD5E523274766009CC894 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
+		1386B3EE2328707E00BC7C89 /* Badges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badges.swift; sourceTree = "<group>"; };
 		13B02B3323209D15007F9463 /* JSQMessagesInputToolBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQMessagesInputToolBarExtension.swift; sourceTree = "<group>"; };
 		13C83840231F41F60072666E /* BlockedUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUsersViewController.swift; sourceTree = "<group>"; };
 		13C83842231F570D0072666E /* BackgroundCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				847068B822F615AA00DCB6BA /* Constants.swift */,
 				847068BA22F6197900DCB6BA /* FCollectionReference.swift */,
 				847068BD22F61B4200DCB6BA /* HelperFunctions.swift */,
+				1386B3EE2328707E00BC7C89 /* Badges.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				847068BB22F6197900DCB6BA /* FCollectionReference.swift in Sources */,
 				843DAD5C230AD81F000BA321 /* RegisterViewController.swift in Sources */,
 				132C8905231DCDC0005D392C /* PicturesCollectionViewController.swift in Sources */,
+				1386B3EF2328707E00BC7C89 /* Badges.swift in Sources */,
 				84B92A7522F5EE5B0043B283 /* AppDelegate.swift in Sources */,
 				845200F7230CE85300699EE4 /* DownloadManager.swift in Sources */,
 				845200F9230CF78000699EE4 /* PhotoMediaItem.swift in Sources */,

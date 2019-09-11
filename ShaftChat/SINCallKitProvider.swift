@@ -27,7 +27,7 @@ class SINCallKitProvider: NSObject, CXProviderDelegate {
         _client.audioController().delegate = _acDelegate
         _calls = [:]
         
-        let config = CXProviderConfiguration(localizedName: "Wchat")
+        let config = CXProviderConfiguration(localizedName: "ShaftChat")
         config.maximumCallGroups = 1
         config.maximumCallsPerCallGroup = 1
         
@@ -42,7 +42,7 @@ class SINCallKitProvider: NSObject, CXProviderDelegate {
     }
     
     func reportNewIncomingCall (call: SINCall) {
-        var caller = "WChat Call"
+        var caller = "ShaftChat Call"
         if let call = call.headers[kFULLNAME] {
             caller = call as! String
         }

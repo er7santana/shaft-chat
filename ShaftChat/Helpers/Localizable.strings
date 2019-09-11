@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  ShaftChat
+
+  Created by Eliezer Rodrigo on 10/09/19.
+  Copyright © 2019 Shaft Corporation. All rights reserved.
+*/
+
+"SIN_INCOMING_CALL" = "Incoming Call";
+"SIN_CANCEL_CALL" = "Cancel Call";

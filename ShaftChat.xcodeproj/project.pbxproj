@@ -21,6 +21,7 @@
 		1333B8DB2320B8F20017A3A6 /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333B8DA2320B8F20017A3A6 /* NewGroupViewController.swift */; };
 		134AD5E623274766009CC894 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 134AD5E523274766009CC894 /* PushKit.framework */; };
 		1386B3EF2328707E00BC7C89 /* Badges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386B3EE2328707E00BC7C89 /* Badges.swift */; };
+		1386B3F1232874E200BC7C89 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1386B3F0232874E200BC7C89 /* Localizable.strings */; };
 		13B02B3423209D15007F9463 /* JSQMessagesInputToolBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B02B3323209D15007F9463 /* JSQMessagesInputToolBarExtension.swift */; };
 		13C83841231F41F60072666E /* BlockedUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83840231F41F60072666E /* BlockedUsersViewController.swift */; };
 		13C83843231F570D0072666E /* BackgroundCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83842231F570D0072666E /* BackgroundCollectionViewController.swift */; };
@@ -107,6 +108,7 @@
 		134AD5E12327468C009CC894 /* ShaftChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShaftChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		134AD5E523274766009CC894 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		1386B3EE2328707E00BC7C89 /* Badges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badges.swift; sourceTree = "<group>"; };
+		1386B3F0232874E200BC7C89 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		13B02B3323209D15007F9463 /* JSQMessagesInputToolBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQMessagesInputToolBarExtension.swift; sourceTree = "<group>"; };
 		13C83840231F41F60072666E /* BlockedUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUsersViewController.swift; sourceTree = "<group>"; };
 		13C83842231F570D0072666E /* BackgroundCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				847068BA22F6197900DCB6BA /* FCollectionReference.swift */,
 				847068BD22F61B4200DCB6BA /* HelperFunctions.swift */,
 				1386B3EE2328707E00BC7C89 /* Badges.swift */,
+				1386B3F0232874E200BC7C89 /* Localizable.strings */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				84B92A7F22F5EE5E0043B283 /* LaunchScreen.storyboard in Resources */,
 				847068B522F611E600DCB6BA /* GoogleService-Info.plist in Resources */,
 				130632EA23285EDA00472982 /* ringback.wav in Resources */,
+				1386B3F1232874E200BC7C89 /* Localizable.strings in Resources */,
 				84B92A7C22F5EE5E0043B283 /* Assets.xcassets in Resources */,
 				130632EB23285EDA00472982 /* incoming.wav in Resources */,
 				84B92A7A22F5EE5B0043B283 /* Main.storyboard in Resources */,

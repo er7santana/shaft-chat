@@ -22,6 +22,7 @@
 		134AD5E623274766009CC894 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 134AD5E523274766009CC894 /* PushKit.framework */; };
 		1386B3EF2328707E00BC7C89 /* Badges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386B3EE2328707E00BC7C89 /* Badges.swift */; };
 		1386B3F1232874E200BC7C89 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1386B3F0232874E200BC7C89 /* Localizable.strings */; };
+		1386B3F323287E1E00BC7C89 /* PhoneNumberLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386B3F223287E1E00BC7C89 /* PhoneNumberLoginViewController.swift */; };
 		13B02B3423209D15007F9463 /* JSQMessagesInputToolBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B02B3323209D15007F9463 /* JSQMessagesInputToolBarExtension.swift */; };
 		13C83841231F41F60072666E /* BlockedUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83840231F41F60072666E /* BlockedUsersViewController.swift */; };
 		13C83843231F570D0072666E /* BackgroundCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C83842231F570D0072666E /* BackgroundCollectionViewController.swift */; };
@@ -109,6 +110,7 @@
 		134AD5E523274766009CC894 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		1386B3EE2328707E00BC7C89 /* Badges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badges.swift; sourceTree = "<group>"; };
 		1386B3F0232874E200BC7C89 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		1386B3F223287E1E00BC7C89 /* PhoneNumberLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberLoginViewController.swift; sourceTree = "<group>"; };
 		13B02B3323209D15007F9463 /* JSQMessagesInputToolBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSQMessagesInputToolBarExtension.swift; sourceTree = "<group>"; };
 		13C83840231F41F60072666E /* BlockedUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUsersViewController.swift; sourceTree = "<group>"; };
 		13C83842231F570D0072666E /* BackgroundCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewController.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				84695ED623178909000408E4 /* AudioViewController.swift */,
 				1314D0BF23270CBB0037EAD3 /* CallTableViewController.swift */,
 				130632E6232858E200472982 /* CallViewController.swift */,
+				1386B3F223287E1E00BC7C89 /* PhoneNumberLoginViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				13B02B3423209D15007F9463 /* JSQMessagesInputToolBarExtension.swift in Sources */,
 				1333B8DB2320B8F20017A3A6 /* NewGroupViewController.swift in Sources */,
 				1306250423207EE9007031D6 /* CountryCode.swift in Sources */,
+				1386B3F323287E1E00BC7C89 /* PhoneNumberLoginViewController.swift in Sources */,
 				84C5FB042318A394001F840A /* MapViewController.swift in Sources */,
 				13C83849231F5EC30072666E /* EditProfileTableViewController.swift in Sources */,
 				132C8907231DCE07005D392C /* PicturesCollectionViewCell.swift in Sources */,

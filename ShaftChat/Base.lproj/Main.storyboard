@@ -217,10 +217,10 @@
             </objects>
             <point key="canvasLocation" x="449" y="100"/>
         </scene>
-        <!--View Controller-->
+        <!--Phone Number Login View Controller-->
         <scene sceneID="kzf-je-Oll">
             <objects>
-                <viewController id="xdg-B6-UOy" sceneMemberID="viewController">
+                <viewController id="xdg-B6-UOy" customClass="PhoneNumberLoginViewController" customModule="ShaftChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sKZ-PB-4a3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -229,7 +229,7 @@
                                 <rect key="frame" x="0.0" y="326" width="375" height="170"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="C2J-vB-cOE">
-                                        <rect key="frame" x="8" y="25" width="359" height="120"/>
+                                        <rect key="frame" x="8" y="45" width="359" height="80"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yEM-eo-ul2">
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
@@ -252,23 +252,26 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fkP-B6-gbI">
-                                                <rect key="frame" x="0.0" y="40" width="359" height="80"/>
+                                                <rect key="frame" x="0.0" y="40" width="359" height="40"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SXO-73-rmu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
+                                                    <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SXO-73-rmu">
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="0.0"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKq-Dv-HUO">
-                                                        <rect key="frame" x="0.0" y="40" width="359" height="40"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="40"/>
                                                         <color key="backgroundColor" red="0.063579510790000002" green="0.70355361490000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="xzW-0b-2Vd"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button">
+                                                        <state key="normal" title="Request">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="requestButtonPressed:" destination="xdg-B6-UOy" eventType="touchUpInside" id="kPX-fv-Cys"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -292,6 +295,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aIf-6f-HvY"/>
                     </view>
+                    <connections>
+                        <outlet property="codeTextField" destination="SXO-73-rmu" id="Ioo-je-wwb"/>
+                        <outlet property="countryCodeTextField" destination="2fg-m2-pcK" id="HCt-We-M8H"/>
+                        <outlet property="mobileNumberTextField" destination="ZCR-tY-bMH" id="imI-KE-4Np"/>
+                        <outlet property="requestButton" destination="fKq-Dv-HUO" id="pEb-aW-lb6"/>
+                        <segue destination="yLt-V8-FTl" kind="presentation" identifier="welcomeToFinishSegue" id="4KB-0v-OXe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b6t-ey-Zu9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2202,4 +2212,7 @@
         <image name="settings" width="25" height="25"/>
         <image name="speaker" width="250" height="250"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="4KB-0v-OXe"/>
+    </inferredMetricsTieBreakers>
 </document>
